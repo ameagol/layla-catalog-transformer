@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="Catalog Transformer turns plain-language rules into local Excel data-quality checks, human-reviewed findings, and action-ready workbooks. Powered by Laya AI." />
+    <title>Catalog Transformer — Your rules. Better data.</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="screen-tools" aria-label="Document tools">
+      <span>A one-page introduction <span class="tools-divider">/</span> Made to share</span>
+      <button type="button" data-print>Print / save PDF <span aria-hidden="true">↗</span></button>
+    </div>
+
+    <main class="sheet">
+      <header class="masthead">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+            <rect width="256" height="256" rx="54" fill="#101815" />
+            <path d="M0 54C0 24.18 24.18 0 54 0h148c29.82 0 54 24.18 54 54v10H0V54Z" fill="#D9FF57" />
+            <path d="M112 92H70c-13.255 0-24 10.745-24 24v38c0 13.255 10.745 24 24 24h42" fill="none" stroke="#D9FF57" stroke-width="20" />
+            <path d="M137 101h72M173 101v78" fill="none" stroke="#59C8C1" stroke-width="20" />
+            <rect x="43" y="202" width="170" height="12" rx="6" fill="#F16B3A" />
+          </svg>
+          <span>Catalog<br /><strong>Transformer</strong></span>
+        </div>
+        <div class="edition"><span class="status-dot" aria-hidden="true"></span> Local AI. Human control.</div>
+      </header>
+
+      <section class="hero" aria-labelledby="headline">
+        <div class="hero-main">
+          <p class="eyebrow">Excel quality. In plain language.</p>
+          <h1 id="headline">Your rules.<br />Better <em>data.</em></h1>
+          <p class="hero-intro">Turn everyday instructions into repeatable checks<br class="desktop-break" /> and an Excel file your team can act on.</p>
+        </div>
+        <aside class="hero-note" aria-label="The problem it solves">
+          <span class="note-arrow" aria-hidden="true">↗</span>
+          <p>Less manual checking.<br />Fewer scattered formulas.<br /><strong>Clearer next steps.</strong></p>
+          <span class="note-caption">You know the business.<br /> Write the rule, not the code.</span>
+        </aside>
+      </section>
+
+      <section class="workflow" aria-labelledby="flow-title">
+        <div class="section-top light">
+          <h2 id="flow-title">01 / From file to action</h2>
+          <span>No external reference sheets.</span>
+        </div>
+
+        <ol class="flow-grid" aria-label="Excel to human rules to Laya transformer to reviewed Excel">
+          <li class="stage">
+            <div class="stage-title"><span>01</span><h3>Your Excel</h3></div>
+            <div class="stage-visual workbook-visual">
+              <svg class="workbook" viewBox="0 0 154 128" role="img" aria-label="An Excel workbook with cells that need review">
+                <rect x="20" y="5" width="113" height="116" rx="7" fill="#f4f5e9" />
+                <path d="M27 5h99a7 7 0 0 1 7 7v18H20V12a7 7 0 0 1 7-7" fill="#cfe99d" />
+                <path d="M34 46h86M34 63h86M34 80h86M34 97h86M34 114h86M58 39v74M86 39v74" fill="none" stroke="#cad2c5" stroke-width="1.5" />
+                <rect x="59" y="64" width="26" height="15" fill="#f4aba2" />
+                <rect x="87" y="81" width="33" height="15" fill="#f4aba2" />
+                <rect x="3" y="41" width="41" height="46" rx="6" fill="#29865e" />
+                <path d="m15 54 17 20m0-20L15 74" stroke="#fff" stroke-width="4" />
+                <circle cx="33" cy="18" r="3" fill="#54765d" />
+                <path d="M45 18h31" stroke="#54765d" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p>Load a workbook.<br />Keep the original.</p>
+          </li>
+
+          <li class="stage">
+            <div class="stage-title"><span>02</span><h3>Human rules</h3></div>
+            <div class="stage-visual rule-visual">
+              <div class="rule-note"><span class="rule-quote" aria-hidden="true">“</span><p>If Status is Active,<br /><strong>Phone cannot<br />be empty.</strong></p><span class="rule-caret" aria-hidden="true"></span></div>
+            </div>
+            <p>Say what should be true.<br />Set priority and action.</p>
+          </li>
+
+          <li class="stage neural-stage">
+            <div class="stage-title"><span>03</span><h3>Laya transformer</h3></div>
+            <div class="stage-visual neural-visual">
+              <svg class="neural-network" viewBox="0 0 284 148" role="img" aria-labelledby="neural-title neural-description">
+                <title id="neural-title">A rule becomes a structured decision</title>
+                <desc id="neural-description">Conceptual neural-network illustration, not a model architecture diagram. Natural-language intent enters a local Laya model. Its approval gates a structured rule plan; deterministic checks then evaluate the spreadsheet rows.</desc>
+                <g class="network-edges" fill="none" stroke="#5d8777" stroke-width="1">
+                  <path d="M26 35 100 18M26 35 100 51M26 35 100 84M26 35 100 117M26 68 100 18M26 68 100 51M26 68 100 84M26 68 100 117M26 101 100 18M26 101 100 51M26 101 100 84M26 101 100 117" />
+                  <path d="M100 18 178 18M100 18 178 51M100 18 178 84M100 18 178 117M100 51 178 18M100 51 178 51M100 51 178 84M100 51 178 117M100 84 178 18M100 84 178 51M100 84 178 84M100 84 178 117M100 117 178 18M100 117 178 51M100 117 178 84M100 117 178 117" />
+                  <path d="M178 18 254 35M178 18 254 68M178 18 254 101M178 51 254 35M178 51 254 68M178 51 254 101M178 84 254 35M178 84 254 68M178 84 254 101M178 117 254 35M178 117 254 68M178 117 254 101" />
+                </g>
+                <g class="network-signal" fill="none" stroke="#defa84" stroke-width="2.5">
+                  <path d="m26 68 74-17 78 33 76-16" />
+                  <path d="m26 101 74-17 78-33 76-16" opacity=".6" />
+                </g>
+                <g fill="#123e32" stroke="#85ad8f" stroke-width="2">
+                  <circle cx="100" cy="18" r="6" /><circle cx="100" cy="117" r="6" />
+                  <circle cx="178" cy="18" r="6" /><circle cx="178" cy="117" r="6" />
+                  <circle cx="254" cy="101" r="7" />
+                </g>
+                <g fill="#f09c71" stroke="#ffd1a3" stroke-width="2">
+                  <circle cx="26" cy="35" r="7" /><circle cx="26" cy="68" r="7" /><circle cx="26" cy="101" r="7" />
+                </g>
+                <g fill="#defa84" stroke="#defa84" stroke-width="2">
+                  <circle cx="100" cy="51" r="6" /><circle cx="100" cy="84" r="6" />
+                  <circle cx="178" cy="51" r="6" /><circle cx="178" cy="84" r="6" />
+                  <circle cx="254" cy="35" r="7" /><circle cx="254" cy="68" r="7" />
+                </g>
+                <g class="network-labels" fill="#cbdac8" font-size="13">
+                  <text x="8" y="144">INTENT</text><text x="201" y="144">RULE PLAN</text>
+                </g>
+              </svg>
+            </div>
+            <p>Local AI approves intent.<br />Exact checks evaluate rows.</p>
+          </li>
+
+          <li class="stage">
+            <div class="stage-title"><span>04</span><h3>Reviewed Excel</h3></div>
+            <div class="stage-visual workbook-visual">
+              <svg class="workbook" viewBox="0 0 154 128" role="img" aria-label="Reviewed workbook with an accepted row, red error cells, and action items">
+                <rect x="15" y="5" width="119" height="116" rx="7" fill="#f4f5e9" />
+                <path d="M22 5h105a7 7 0 0 1 7 7v18H15V12a7 7 0 0 1 7-7" fill="#cfe99d" />
+                <path d="M28 48h93M28 68h93M28 88h93M28 108h93M57 38v70M85 38v70" fill="none" stroke="#cad2c5" stroke-width="1.5" />
+                <rect x="58" y="49" width="26" height="18" fill="#f4aba2" />
+                <path d="M93 57h22M93 77h22M93 97h22" stroke="#6b8964" stroke-width="3" stroke-linecap="round" />
+                <circle cx="127" cy="100" r="23" fill="#defa84" stroke="#153f31" stroke-width="4" />
+                <path d="m116 100 7 7 14-16" fill="none" stroke="#153f31" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M29 18h37" stroke="#54765d" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p>Clean + accepted rows.<br />Actions travel with them.</p>
+          </li>
+        </ol>
+
+        <div class="flow-bottom"><span class="status-dot" aria-hidden="true"></span><strong>Private by design.</strong> The model and row checks run on your computer.</div>
+      </section>
+
+      <section class="example" aria-labelledby="example-title">
+        <div class="section-top"><h2 id="example-title">02 / One rule, made actionable</h2><span>Illustrative mapping</span></div>
+        <div class="example-grid">
+          <blockquote>“Active accounts need a phone. If Status is Active, Phone cannot be empty. Flag high priority and route to the Account Owner.”</blockquote>
+          <dl class="rule-table" aria-label="The sentence translated into a structured validation rule">
+            <div><dt>Title</dt><dd>Active accounts need a phone</dd></div>
+            <div><dt>Rule</dt><dd><code>Status = Active</code> <span class="operator">and</span> <code>Phone is blank</code></dd></div>
+            <div><dt>Flag</dt><dd><span class="priority">High priority</span></dd></div>
+            <div><dt>Action</dt><dd>Route to the Account Owner.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="checks" aria-labelledby="checks-title">
+        <div class="section-top"><h2 id="checks-title">03 / Everyday problems. Repeatable checks.</h2><span>Your data. Your conditions.</span></div>
+        <ul class="check-grid">
+          <li><span class="check-icon" aria-hidden="true">∅</span><div><h3>Missing data</h3><p>Empty cells or absent columns.</p></div></li>
+          <li><span class="check-icon" aria-hidden="true">≡</span><div><h3>Duplicate entries</h3><p>Repeated IDs or field combinations.</p></div></li>
+          <li><span class="check-icon" aria-hidden="true">@</span><div><h3>Invalid formats</h3><p>Email, ZIP, dates and numbers.</p></div></li>
+          <li><span class="check-icon" aria-hidden="true">≠</span><div><h3>Field comparisons</h3><p>Values that should match or differ.</p></div></li>
+          <li><span class="check-icon" aria-hidden="true">↳</span><div><h3>Conditional rules</h3><p>If X is true, Y cannot be empty.</p></div></li>
+          <li><span class="check-icon text-icon" aria-hidden="true">Aa</span><div><h3>Text &amp; ranges</h3><p>Text fragments, values and limits.</p></div></li>
+        </ul>
+      </section>
+
+      <section class="review-strip" aria-labelledby="review-title">
+        <div class="review-copy"><h2 id="review-title">You make the final call.</h2><p>Grouped findings. One review per row.<br /> Red error cells, priorities and action items in the export.</p></div>
+        <div class="review-decisions" aria-label="Illustration of the app's row-review actions; not interactive controls">
+          <span class="decision accept"><span aria-hidden="true">✓</span> Accept</span>
+          <span class="decision exclude"><span aria-hidden="true">×</span> Exclude</span>
+          <span class="decision-caption">Keep what you approve.</span>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Local-first benefits and availability">
+        <div><span class="benefit-kicker">Private</span><h2>On-device AI</h2><p>Local model. Your workbook<br /> stays on your computer.</p></div>
+        <div><span class="benefit-kicker">Open-source AI</span><h2>Powered by Laya</h2><p>Apache 2.0 engine.<br /> An alternative to Jev.</p></div>
+        <div><span class="benefit-kicker">Lean by design</span><h2>$0 token fees</h2><p>No hosted backend to provision.<br /> No per-token API bill.</p></div>
+        <div><span class="benefit-kicker">Windows desktop</span><h2>Ready to run</h2><p>Offline installer.<br /> Portable build option.<sup>1</sup></p></div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-tagline">For people who know their data. <em>Not code.</em><span class="footer-edition">AIDYN / PRODUCT BRIEF</span></div>
+        <p>Reviewed output, not automatic cell repair. Original values stay unchanged. Unsupported or uncertain rules need revision.<br /><sup>1</sup> Portable packaging is configured; the verified release is the offline Windows installer. Device resources are still required.</p>
+      </footer>
+    </main>
+
+    <script>
+      document.querySelector('[data-print]').addEventListener('click', () => window.print());
+    </script>
+  </body>
+</html>

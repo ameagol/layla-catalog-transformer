@@ -1,0 +1,5020 @@
+[
+  {
+    "id": "BENCH-001",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Transactional accounts must have a Vegetable owner. If an account is classified as a Transactional Account and its SFDC Veg Owner field is blank, flag a high-priority missing-owner issue. Route it to the Commercial Data Steward to assign an accountable owner.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "missing",
+      "priority": "high",
+      "actionItem": "Route it to the Commercial Data Steward to assign an accountable owner.",
+      "fields": [
+        "Account category",
+        "SFDC Veg Owner"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-002",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "The proposed owner must exist. If the Proposed Veg Owner FND ID is blank, flag this as a high-priority issue and route it to the Data Steward for owner master-data correction.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "missing",
+      "priority": "high",
+      "actionItem": "route it to the Data Steward for owner master-data correction.",
+      "fields": [
+        "Proposed Veg Owner FND ID"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-003",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Owner fields must identify the same person. If SFDC Veg Owner, Veg Owner Name, and Proposed Veg Owner FND ID identify different people, flag a medium-priority ownership conflict. Route it to the account's current owner or the Data Steward to confirm the correct assignment.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Bob",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "consistency",
+      "priority": "medium",
+      "actionItem": "Route it to the account's current owner or the Data Steward to confirm the correct assignment.",
+      "fields": [
+        "SFDC Veg Owner",
+        "Veg Owner Name",
+        "Proposed Veg Owner FND ID"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-004",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "The sales structure must match. If the Sales Organization, Sales Group, and Sales Office are different, flag this as a high-priority issue and route it to Commercial Operations or the Data Steward.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Different",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "consistency",
+      "priority": "high",
+      "actionItem": "route it to Commercial Operations or the Data Steward.",
+      "fields": [
+        "Sales Organization",
+        "Sales Group",
+        "Sales Office"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-005",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "The owner must align with the commercial structure. If the current owner does not exist, flag a medium-priority ownership inconsistency. Route it to Commercial Operations for confirmation.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "missing",
+      "priority": "medium",
+      "actionItem": "Route it to Commercial Operations for confirmation.",
+      "fields": [
+        "SFDC Veg Owner"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-006",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Required segmentation must be populated. For account types designated by the SME, the Veg Segmentation Type (SFDC) field must contain a value. If it is blank, flag a medium-priority issue. Route it to the Account Owner to supply the missing value.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "configuration": {
+      "conditionValues": {
+        "Account Type": [
+          "Grower"
+        ]
+      }
+    },
+    "expected": {
+      "status": "valid",
+      "category": "missing",
+      "priority": "medium",
+      "actionItem": "Route it to the Account Owner to supply the missing value.",
+      "fields": [
+        "Account Type",
+        "Veg Segmentation Type (SFDC)"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-007",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Country and state must be compatible. For US accounts, the State field must contain a value from the approved US-state list. Flag incompatible values as medium-priority geographic issues and route them to the Account Owner or Data Steward to correct the address data.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "ZZ",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "validation",
+      "priority": "medium",
+      "actionItem": "route them to the Account Owner or Data Steward to correct the address data.",
+      "fields": [
+        "Country",
+        "State"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-008",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Postal codes must follow the country's format. US postal codes must match the ZIP format. Flag invalid formats as medium priority and route them to the Account Owner for verification.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "1234",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "validation",
+      "priority": "medium",
+      "actionItem": "route them to the Account Owner for verification.",
+      "fields": [
+        "Country",
+        "Postal code"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-009",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Contact details must meet the minimum standard. For active or transactional accounts, flag a medium-priority issue if both Phone and Email are blank. Route accounts that fail the applicable standard to the Account Owner.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "",
+        "Email": "",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "missing",
+      "priority": "medium",
+      "actionItem": "Route accounts that fail the applicable standard to the Account Owner.",
+      "fields": [
+        "Account Status",
+        "Account category",
+        "Phone",
+        "Email"
+      ],
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-010",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Master identifiers must be unique. If the same MDMi BPID, FNDG ID, or Salesforce ID appears on more than one record, flag a high-priority duplicate master-identifier issue. Route it to the Master Data Steward for investigation.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "uniqueness",
+      "priority": "high",
+      "actionItem": "Route it to the Master Data Steward for investigation.",
+      "fields": [
+        "MDMi BPID",
+        "FNDG ID",
+        "Salesforce ID"
+      ],
+      "flaggedRows": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-011",
+    "family": "supplied dataset-only commercial rules",
+    "sourceText": "Potential duplicate customers must be reviewed. Flag records as high-priority probable duplicates when their normalized names and postal codes match exactly. Route them to the Master Data Steward for validation before any governed merge.",
+    "records": [
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": "Green Seeds",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      },
+      {
+        "Account category": "Transactional Account",
+        "SFDC Veg Owner": "Alice",
+        "Proposed Veg Owner FND ID": "Alice",
+        "Veg Owner Name": "Alice",
+        "Sales Organization": "Sales-A",
+        "Sales Group": "Sales-A",
+        "Sales Office": "Sales-A",
+        "Veg Segmentation Type (SFDC)": "Commercial",
+        "Account Type": "Grower",
+        "Account Sub-Type": "Customer",
+        "Country": "US",
+        "State": "NY",
+        "Postal code": "00501",
+        "Phone": "2125551234",
+        "Email": "alice@example.test",
+        "Account Status": "Active",
+        "Name": " Gréen   Seeds ",
+        "Address": "1 Main Street",
+        "MDMi BPID": "MDM-1",
+        "FNDG ID": "FND-1",
+        "Salesforce ID": "001ABC"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "category": "duplicate",
+      "priority": "high",
+      "actionItem": "Route them to the Master Data Steward for validation before any governed merge.",
+      "fields": [
+        "Name",
+        "Postal code"
+      ],
+      "flaggedRows": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-012",
+    "family": "built-in email format",
+    "sourceText": "Email must be a valid email address. Priority: Medium / High. Recommended action: Route it to the Account Owner to correct the email address.",
+    "records": [
+      {
+        "Email": "customer@example.test"
+      },
+      {
+        "Email": "invalid"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route it to the Account Owner to correct the email address.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-013",
+    "family": "missing values",
+    "sourceText": "\"Email\" is required. Priority: Medium. Action: Route to the Account Owner to complete Email.",
+    "records": [
+      {
+        "Email": "present"
+      },
+      {
+        "Email": ""
+      },
+      {
+        "Email": null
+      },
+      {
+        "Email": " \t "
+      },
+      {
+        "Email": 0
+      },
+      {
+        "Email": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to complete Email.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-014",
+    "family": "missing values",
+    "sourceText": "The \"Phone\" field is mandatory. Priority: Low / Medium. Action item: Route to the Account Owner to complete Phone.",
+    "records": [
+      {
+        "Phone": "present"
+      },
+      {
+        "Phone": ""
+      },
+      {
+        "Phone": null
+      },
+      {
+        "Phone": " \t "
+      },
+      {
+        "Phone": 0
+      },
+      {
+        "Phone": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Phone"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to complete Phone.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-015",
+    "family": "missing values",
+    "sourceText": "\"Description\" must not be blank. Priority: Low. Recommended action: Route to the Account Owner to complete Description.",
+    "records": [
+      {
+        "Description": "present"
+      },
+      {
+        "Description": ""
+      },
+      {
+        "Description": null
+      },
+      {
+        "Description": " \t "
+      },
+      {
+        "Description": 0
+      },
+      {
+        "Description": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Description"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to complete Description.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-016",
+    "family": "missing values",
+    "sourceText": "\"Customer Code\" cannot be empty. Priority: High. Action: Route to the Account Owner to complete Customer Code.",
+    "records": [
+      {
+        "Customer Code": "present"
+      },
+      {
+        "Customer Code": ""
+      },
+      {
+        "Customer Code": null
+      },
+      {
+        "Customer Code": " \t "
+      },
+      {
+        "Customer Code": 0
+      },
+      {
+        "Customer Code": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer Code"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to complete Customer Code.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-017",
+    "family": "missing values",
+    "sourceText": "Flag rows where \"Account Name\" is missing. Priority: Medium / High. Action item: Route to the Account Owner to complete Account Name.",
+    "records": [
+      {
+        "Account Name": "present"
+      },
+      {
+        "Account Name": ""
+      },
+      {
+        "Account Name": null
+      },
+      {
+        "Account Name": " \t "
+      },
+      {
+        "Account Name": 0
+      },
+      {
+        "Account Name": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Name"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to complete Account Name.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-018",
+    "family": "missing values",
+    "sourceText": "\"Country\" must have a value. Priority: Medium. Recommended action: Route to the Account Owner to complete Country.",
+    "records": [
+      {
+        "Country": "present"
+      },
+      {
+        "Country": ""
+      },
+      {
+        "Country": null
+      },
+      {
+        "Country": " \t "
+      },
+      {
+        "Country": 0
+      },
+      {
+        "Country": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Country"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to complete Country.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-019",
+    "family": "missing values",
+    "sourceText": "\"State\" is required. Priority: Low / Medium. Action: Route to the Account Owner to complete State.",
+    "records": [
+      {
+        "State": "present"
+      },
+      {
+        "State": ""
+      },
+      {
+        "State": null
+      },
+      {
+        "State": " \t "
+      },
+      {
+        "State": 0
+      },
+      {
+        "State": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "State"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to complete State.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-020",
+    "family": "missing values",
+    "sourceText": "The \"Postal code\" field is mandatory. Priority: Low. Action item: Route to the Account Owner to complete Postal code.",
+    "records": [
+      {
+        "Postal code": "present"
+      },
+      {
+        "Postal code": ""
+      },
+      {
+        "Postal code": null
+      },
+      {
+        "Postal code": " \t "
+      },
+      {
+        "Postal code": 0
+      },
+      {
+        "Postal code": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Postal code"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to complete Postal code.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-021",
+    "family": "missing values",
+    "sourceText": "\"Tax ID\" must not be blank. Priority: High. Recommended action: Route to the Account Owner to complete Tax ID.",
+    "records": [
+      {
+        "Tax ID": "present"
+      },
+      {
+        "Tax ID": ""
+      },
+      {
+        "Tax ID": null
+      },
+      {
+        "Tax ID": " \t "
+      },
+      {
+        "Tax ID": 0
+      },
+      {
+        "Tax ID": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Tax ID"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to complete Tax ID.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-022",
+    "family": "missing values",
+    "sourceText": "\"SKU\" cannot be empty. Priority: Medium / High. Action: Route to the Account Owner to complete SKU.",
+    "records": [
+      {
+        "SKU": "present"
+      },
+      {
+        "SKU": ""
+      },
+      {
+        "SKU": null
+      },
+      {
+        "SKU": " \t "
+      },
+      {
+        "SKU": 0
+      },
+      {
+        "SKU": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "SKU"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to complete SKU.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-023",
+    "family": "missing values",
+    "sourceText": "Flag rows where \"Cost Center\" is missing. Priority: Medium. Action item: Route to the Account Owner to complete Cost Center.",
+    "records": [
+      {
+        "Cost Center": "present"
+      },
+      {
+        "Cost Center": ""
+      },
+      {
+        "Cost Center": null
+      },
+      {
+        "Cost Center": " \t "
+      },
+      {
+        "Cost Center": 0
+      },
+      {
+        "Cost Center": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Cost Center"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to complete Cost Center.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-024",
+    "family": "missing values",
+    "sourceText": "\"Currency\" must have a value. Priority: Low / Medium. Recommended action: Route to the Account Owner to complete Currency.",
+    "records": [
+      {
+        "Currency": "present"
+      },
+      {
+        "Currency": ""
+      },
+      {
+        "Currency": null
+      },
+      {
+        "Currency": " \t "
+      },
+      {
+        "Currency": 0
+      },
+      {
+        "Currency": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Currency"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to complete Currency.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-025",
+    "family": "missing values",
+    "sourceText": "\"Sales Office\" is required. Priority: Low. Action: Route to the Account Owner to complete Sales Office.",
+    "records": [
+      {
+        "Sales Office": "present"
+      },
+      {
+        "Sales Office": ""
+      },
+      {
+        "Sales Office": null
+      },
+      {
+        "Sales Office": " \t "
+      },
+      {
+        "Sales Office": 0
+      },
+      {
+        "Sales Office": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Sales Office"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to complete Sales Office.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-026",
+    "family": "missing values",
+    "sourceText": "The \"External Reference\" field is mandatory. Priority: High. Action item: Route to the Account Owner to complete External Reference.",
+    "records": [
+      {
+        "External Reference": "present"
+      },
+      {
+        "External Reference": ""
+      },
+      {
+        "External Reference": null
+      },
+      {
+        "External Reference": " \t "
+      },
+      {
+        "External Reference": 0
+      },
+      {
+        "External Reference": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "External Reference"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to complete External Reference.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-027",
+    "family": "missing values",
+    "sourceText": "\"Nome completo\" must not be blank. Priority: Medium / High. Recommended action: Route to the Account Owner to complete Nome completo.",
+    "records": [
+      {
+        "Nome completo": "present"
+      },
+      {
+        "Nome completo": ""
+      },
+      {
+        "Nome completo": null
+      },
+      {
+        "Nome completo": " \t "
+      },
+      {
+        "Nome completo": 0
+      },
+      {
+        "Nome completo": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Nome completo"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to complete Nome completo.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-028",
+    "family": "missing values",
+    "sourceText": "\"Delivery Address\" cannot be empty. Priority: Medium. Action: Route to the Account Owner to complete Delivery Address.",
+    "records": [
+      {
+        "Delivery Address": "present"
+      },
+      {
+        "Delivery Address": ""
+      },
+      {
+        "Delivery Address": null
+      },
+      {
+        "Delivery Address": " \t "
+      },
+      {
+        "Delivery Address": 0
+      },
+      {
+        "Delivery Address": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Delivery Address"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to complete Delivery Address.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-029",
+    "family": "missing values",
+    "sourceText": "Flag rows where \"Source System\" is missing. Priority: Low / Medium. Action item: Route to the Account Owner to complete Source System.",
+    "records": [
+      {
+        "Source System": "present"
+      },
+      {
+        "Source System": ""
+      },
+      {
+        "Source System": null
+      },
+      {
+        "Source System": " \t "
+      },
+      {
+        "Source System": 0
+      },
+      {
+        "Source System": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Source System"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to complete Source System.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-030",
+    "family": "missing values",
+    "sourceText": "\"Approval Notes\" must have a value. Priority: Low. Recommended action: Route to the Account Owner to complete Approval Notes.",
+    "records": [
+      {
+        "Approval Notes": "present"
+      },
+      {
+        "Approval Notes": ""
+      },
+      {
+        "Approval Notes": null
+      },
+      {
+        "Approval Notes": " \t "
+      },
+      {
+        "Approval Notes": 0
+      },
+      {
+        "Approval Notes": false
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Approval Notes"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to complete Approval Notes.",
+      "flaggedRows": [
+        3,
+        4,
+        5
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-031",
+    "family": "conditional required",
+    "sourceText": "If \"Country\" is \"US\", \"State\" must not be blank. Priority: High. Action: Route to the Data Steward to complete State for the US scope.",
+    "records": [
+      {
+        "Country": "US",
+        "State": "present"
+      },
+      {
+        "Country": "US",
+        "State": ""
+      },
+      {
+        "Country": "Out of scope",
+        "State": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Country",
+        "State"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Data Steward to complete State for the US scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-032",
+    "family": "conditional required",
+    "sourceText": "If \"Account Status\" is \"Active\", \"Email\" must not be blank. Priority: Medium / High. Action item: Route to the Data Steward to complete Email for the Active scope.",
+    "records": [
+      {
+        "Account Status": "Active",
+        "Email": "present"
+      },
+      {
+        "Account Status": "Active",
+        "Email": ""
+      },
+      {
+        "Account Status": "Out of scope",
+        "Email": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Status",
+        "Email"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Data Steward to complete Email for the Active scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-033",
+    "family": "conditional required",
+    "sourceText": "If \"Account Type\" is \"Grower\", \"Segmentation\" must not be blank. Priority: Medium. Recommended action: Route to the Data Steward to complete Segmentation for the Grower scope.",
+    "records": [
+      {
+        "Account Type": "Grower",
+        "Segmentation": "present"
+      },
+      {
+        "Account Type": "Grower",
+        "Segmentation": ""
+      },
+      {
+        "Account Type": "Out of scope",
+        "Segmentation": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Type",
+        "Segmentation"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Data Steward to complete Segmentation for the Grower scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-034",
+    "family": "conditional required",
+    "sourceText": "If \"Region\" is \"North\", \"Sales Team\" must not be blank. Priority: Low / Medium. Action: Route to the Data Steward to complete Sales Team for the North scope.",
+    "records": [
+      {
+        "Region": "North",
+        "Sales Team": "present"
+      },
+      {
+        "Region": "North",
+        "Sales Team": ""
+      },
+      {
+        "Region": "Out of scope",
+        "Sales Team": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Region",
+        "Sales Team"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Data Steward to complete Sales Team for the North scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-035",
+    "family": "conditional required",
+    "sourceText": "If \"Payment Method\" is \"Transfer\", \"Bank Reference\" must not be blank. Priority: Low. Action item: Route to the Data Steward to complete Bank Reference for the Transfer scope.",
+    "records": [
+      {
+        "Payment Method": "Transfer",
+        "Bank Reference": "present"
+      },
+      {
+        "Payment Method": "Transfer",
+        "Bank Reference": ""
+      },
+      {
+        "Payment Method": "Out of scope",
+        "Bank Reference": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Payment Method",
+        "Bank Reference"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Data Steward to complete Bank Reference for the Transfer scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-036",
+    "family": "conditional required",
+    "sourceText": "If \"Product Type\" is \"Seed\", \"Variety\" must not be blank. Priority: High. Recommended action: Route to the Data Steward to complete Variety for the Seed scope.",
+    "records": [
+      {
+        "Product Type": "Seed",
+        "Variety": "present"
+      },
+      {
+        "Product Type": "Seed",
+        "Variety": ""
+      },
+      {
+        "Product Type": "Out of scope",
+        "Variety": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Product Type",
+        "Variety"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Data Steward to complete Variety for the Seed scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-037",
+    "family": "conditional required",
+    "sourceText": "If \"Currency\" is \"USD\", \"Tax Code\" must not be blank. Priority: Medium / High. Action: Route to the Data Steward to complete Tax Code for the USD scope.",
+    "records": [
+      {
+        "Currency": "USD",
+        "Tax Code": "present"
+      },
+      {
+        "Currency": "USD",
+        "Tax Code": ""
+      },
+      {
+        "Currency": "Out of scope",
+        "Tax Code": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Currency",
+        "Tax Code"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Data Steward to complete Tax Code for the USD scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-038",
+    "family": "conditional required",
+    "sourceText": "If \"Channel\" is \"Distributor\", \"Partner ID\" must not be blank. Priority: Medium. Action item: Route to the Data Steward to complete Partner ID for the Distributor scope.",
+    "records": [
+      {
+        "Channel": "Distributor",
+        "Partner ID": "present"
+      },
+      {
+        "Channel": "Distributor",
+        "Partner ID": ""
+      },
+      {
+        "Channel": "Out of scope",
+        "Partner ID": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Channel",
+        "Partner ID"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Data Steward to complete Partner ID for the Distributor scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-039",
+    "family": "conditional required",
+    "sourceText": "If \"Delivery Mode\" is \"Courier\", \"Postal code\" must not be blank. Priority: Low / Medium. Recommended action: Route to the Data Steward to complete Postal code for the Courier scope.",
+    "records": [
+      {
+        "Delivery Mode": "Courier",
+        "Postal code": "present"
+      },
+      {
+        "Delivery Mode": "Courier",
+        "Postal code": ""
+      },
+      {
+        "Delivery Mode": "Out of scope",
+        "Postal code": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Delivery Mode",
+        "Postal code"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Data Steward to complete Postal code for the Courier scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-040",
+    "family": "conditional required",
+    "sourceText": "If \"Approval Status\" is \"Approved\", \"Approver\" must not be blank. Priority: Low. Action: Route to the Data Steward to complete Approver for the Approved scope.",
+    "records": [
+      {
+        "Approval Status": "Approved",
+        "Approver": "present"
+      },
+      {
+        "Approval Status": "Approved",
+        "Approver": ""
+      },
+      {
+        "Approval Status": "Out of scope",
+        "Approver": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Approval Status",
+        "Approver"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Data Steward to complete Approver for the Approved scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-041",
+    "family": "conditional required",
+    "sourceText": "If \"Language\" is \"PT\", \"Portuguese Description\" must not be blank. Priority: High. Action item: Route to the Data Steward to complete Portuguese Description for the PT scope.",
+    "records": [
+      {
+        "Language": "PT",
+        "Portuguese Description": "present"
+      },
+      {
+        "Language": "PT",
+        "Portuguese Description": ""
+      },
+      {
+        "Language": "Out of scope",
+        "Portuguese Description": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Language",
+        "Portuguese Description"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Data Steward to complete Portuguese Description for the PT scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-042",
+    "family": "conditional required",
+    "sourceText": "If \"Customer Tier\" is \"Gold\", \"Account Manager\" must not be blank. Priority: Medium / High. Recommended action: Route to the Data Steward to complete Account Manager for the Gold scope.",
+    "records": [
+      {
+        "Customer Tier": "Gold",
+        "Account Manager": "present"
+      },
+      {
+        "Customer Tier": "Gold",
+        "Account Manager": ""
+      },
+      {
+        "Customer Tier": "Out of scope",
+        "Account Manager": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer Tier",
+        "Account Manager"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Data Steward to complete Account Manager for the Gold scope.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-043",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Phone\" and \"Email\" are blank. Priority: Medium. Action: Route to Customer Service to provide Phone or Email.",
+    "records": [
+      {
+        "Phone": "present",
+        "Email": ""
+      },
+      {
+        "Phone": "",
+        "Email": "present"
+      },
+      {
+        "Phone": "",
+        "Email": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Phone",
+        "Email"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Customer Service to provide Phone or Email.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-044",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Mobile\" and \"Office Phone\" are blank. Priority: Low / Medium. Action item: Route to Customer Service to provide Mobile or Office Phone.",
+    "records": [
+      {
+        "Mobile": "present",
+        "Office Phone": ""
+      },
+      {
+        "Mobile": "",
+        "Office Phone": "present"
+      },
+      {
+        "Mobile": "",
+        "Office Phone": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Mobile",
+        "Office Phone"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Customer Service to provide Mobile or Office Phone.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-045",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Primary Email\" and \"Backup Email\" are blank. Priority: Low. Recommended action: Route to Customer Service to provide Primary Email or Backup Email.",
+    "records": [
+      {
+        "Primary Email": "present",
+        "Backup Email": ""
+      },
+      {
+        "Primary Email": "",
+        "Backup Email": "present"
+      },
+      {
+        "Primary Email": "",
+        "Backup Email": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Primary Email",
+        "Backup Email"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Customer Service to provide Primary Email or Backup Email.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-046",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Billing Phone\" and \"Billing Email\" are blank. Priority: High. Action: Route to Customer Service to provide Billing Phone or Billing Email.",
+    "records": [
+      {
+        "Billing Phone": "present",
+        "Billing Email": ""
+      },
+      {
+        "Billing Phone": "",
+        "Billing Email": "present"
+      },
+      {
+        "Billing Phone": "",
+        "Billing Email": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Billing Phone",
+        "Billing Email"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Customer Service to provide Billing Phone or Billing Email.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-047",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Contact Name\" and \"Contact ID\" are blank. Priority: Medium / High. Action item: Route to Customer Service to provide Contact Name or Contact ID.",
+    "records": [
+      {
+        "Contact Name": "present",
+        "Contact ID": ""
+      },
+      {
+        "Contact Name": "",
+        "Contact ID": "present"
+      },
+      {
+        "Contact Name": "",
+        "Contact ID": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Contact Name",
+        "Contact ID"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Customer Service to provide Contact Name or Contact ID.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-048",
+    "family": "minimum contact",
+    "sourceText": "Flag rows where both \"Support Email\" and \"Support Phone\" are blank. Priority: Medium. Recommended action: Route to Customer Service to provide Support Email or Support Phone.",
+    "records": [
+      {
+        "Support Email": "present",
+        "Support Phone": ""
+      },
+      {
+        "Support Email": "",
+        "Support Phone": "present"
+      },
+      {
+        "Support Email": "",
+        "Support Phone": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Support Email",
+        "Support Phone"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Customer Service to provide Support Email or Support Phone.",
+      "flaggedRows": [
+        4
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-049",
+    "family": "text fragments",
+    "sourceText": "\"Description\" must contain \"seed\". Priority: Low / Medium. Action: Route to Content Operations to review the seed fragment in Description.",
+    "records": [
+      {
+        "Description": "prefix seed suffix"
+      },
+      {
+        "Description": "unrelated value"
+      },
+      {
+        "Description": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Description"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Content Operations to review the seed fragment in Description.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-050",
+    "family": "text fragments",
+    "sourceText": "\"Notes\" must not contain \"obsolete\", ignoring case. Priority: Low. Action item: Route to Content Operations to review the obsolete fragment in Notes.",
+    "records": [
+      {
+        "Notes": "clean value"
+      },
+      {
+        "Notes": "prefix OBSOLETE suffix"
+      },
+      {
+        "Notes": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Notes"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Content Operations to review the obsolete fragment in Notes.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-051",
+    "family": "text fragments",
+    "sourceText": "\"Account Name\" must contain \"Ltd\". Priority: High. Recommended action: Route to Content Operations to review the Ltd fragment in Account Name.",
+    "records": [
+      {
+        "Account Name": "prefix Ltd suffix"
+      },
+      {
+        "Account Name": "unrelated value"
+      },
+      {
+        "Account Name": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Name"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Content Operations to review the Ltd fragment in Account Name.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-052",
+    "family": "text fragments",
+    "sourceText": "\"Internal Notes\" must not contain \"test customer\", ignoring case. Priority: Medium / High. Action: Route to Content Operations to review the test customer fragment in Internal Notes.",
+    "records": [
+      {
+        "Internal Notes": "clean value"
+      },
+      {
+        "Internal Notes": "prefix TEST CUSTOMER suffix"
+      },
+      {
+        "Internal Notes": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Internal Notes"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Content Operations to review the test customer fragment in Internal Notes.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-053",
+    "family": "text fragments",
+    "sourceText": "\"Portuguese Description\" must contain \"café\", ignoring case. Priority: Medium. Action item: Route to Content Operations to review the café fragment in Portuguese Description.",
+    "records": [
+      {
+        "Portuguese Description": "prefix CAFÉ suffix"
+      },
+      {
+        "Portuguese Description": "unrelated value"
+      },
+      {
+        "Portuguese Description": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Portuguese Description"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Content Operations to review the café fragment in Portuguese Description.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-054",
+    "family": "text fragments",
+    "sourceText": "\"Product Notes\" must not contain \"do not sell\". Priority: Low / Medium. Recommended action: Route to Content Operations to review the do not sell fragment in Product Notes.",
+    "records": [
+      {
+        "Product Notes": "clean value"
+      },
+      {
+        "Product Notes": "prefix do not sell suffix"
+      },
+      {
+        "Product Notes": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Product Notes"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Content Operations to review the do not sell fragment in Product Notes.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-055",
+    "family": "text fragments",
+    "sourceText": "\"Email\" must contain \"@\". Priority: Low. Action: Route to Content Operations to review the @ fragment in Email.",
+    "records": [
+      {
+        "Email": "prefix @ suffix"
+      },
+      {
+        "Email": "unrelated value"
+      },
+      {
+        "Email": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Content Operations to review the @ fragment in Email.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-056",
+    "family": "text fragments",
+    "sourceText": "\"Website\" must not contain \"javascript:\", ignoring case. Priority: High. Action item: Route to Content Operations to review the javascript: fragment in Website.",
+    "records": [
+      {
+        "Website": "clean value"
+      },
+      {
+        "Website": "prefix JAVASCRIPT: suffix"
+      },
+      {
+        "Website": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Website"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Content Operations to review the javascript: fragment in Website.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-057",
+    "family": "text fragments",
+    "sourceText": "\"Address\" must contain \"Street\", ignoring case. Priority: Medium / High. Recommended action: Route to Content Operations to review the Street fragment in Address.",
+    "records": [
+      {
+        "Address": "prefix STREET suffix"
+      },
+      {
+        "Address": "unrelated value"
+      },
+      {
+        "Address": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Address"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Content Operations to review the Street fragment in Address.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-058",
+    "family": "text fragments",
+    "sourceText": "\"Comment\" must not contain \"<script>\". Priority: Medium. Action: Route to Content Operations to review the <script> fragment in Comment.",
+    "records": [
+      {
+        "Comment": "clean value"
+      },
+      {
+        "Comment": "prefix <script> suffix"
+      },
+      {
+        "Comment": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Comment"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Content Operations to review the <script> fragment in Comment.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-059",
+    "family": "text fragments",
+    "sourceText": "\"Product Code\" must contain \"A.B\". Priority: Low / Medium. Action item: Route to Content Operations to review the A.B fragment in Product Code.",
+    "records": [
+      {
+        "Product Code": "prefix A.B suffix"
+      },
+      {
+        "Product Code": "unrelated value"
+      },
+      {
+        "Product Code": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Product Code"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Content Operations to review the A.B fragment in Product Code.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-060",
+    "family": "text fragments",
+    "sourceText": "\"Customer Name\" must not contain \"DUMMY\", ignoring case. Priority: Low. Recommended action: Route to Content Operations to review the DUMMY fragment in Customer Name.",
+    "records": [
+      {
+        "Customer Name": "clean value"
+      },
+      {
+        "Customer Name": "prefix DUMMY suffix"
+      },
+      {
+        "Customer Name": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer Name"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Content Operations to review the DUMMY fragment in Customer Name.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-061",
+    "family": "text prefixes",
+    "sourceText": "\"SKU\" must start with \"VEG-\". Priority: High. Action: Route to the Master Data Steward to correct the SKU prefix.",
+    "records": [
+      {
+        "SKU": "VEG-123"
+      },
+      {
+        "SKU": "123VEG-"
+      },
+      {
+        "SKU": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "SKU"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Master Data Steward to correct the SKU prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-062",
+    "family": "text prefixes",
+    "sourceText": "\"Purchase Order\" must start with \"PO/\". Priority: Medium / High. Action item: Route to the Master Data Steward to correct the Purchase Order prefix.",
+    "records": [
+      {
+        "Purchase Order": "PO/123"
+      },
+      {
+        "Purchase Order": "123PO/"
+      },
+      {
+        "Purchase Order": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Purchase Order"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Master Data Steward to correct the Purchase Order prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-063",
+    "family": "text prefixes",
+    "sourceText": "\"Country Code\" must start with \"US\". Priority: Medium. Recommended action: Route to the Master Data Steward to correct the Country Code prefix.",
+    "records": [
+      {
+        "Country Code": "US123"
+      },
+      {
+        "Country Code": "123US"
+      },
+      {
+        "Country Code": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Country Code"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Master Data Steward to correct the Country Code prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-064",
+    "family": "text prefixes",
+    "sourceText": "\"Telephone\" must start with \"+1\". Priority: Low / Medium. Action: Route to the Master Data Steward to correct the Telephone prefix.",
+    "records": [
+      {
+        "Telephone": "+1123"
+      },
+      {
+        "Telephone": "123+1"
+      },
+      {
+        "Telephone": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Telephone"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Master Data Steward to correct the Telephone prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-065",
+    "family": "text prefixes",
+    "sourceText": "\"External Key\" must start with \"EXT_\". Priority: Low. Action item: Route to the Master Data Steward to correct the External Key prefix.",
+    "records": [
+      {
+        "External Key": "EXT_123"
+      },
+      {
+        "External Key": "123EXT_"
+      },
+      {
+        "External Key": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "External Key"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Master Data Steward to correct the External Key prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-066",
+    "family": "text prefixes",
+    "sourceText": "\"Website\" must start with \"https://\". Priority: High. Recommended action: Route to the Master Data Steward to correct the Website prefix.",
+    "records": [
+      {
+        "Website": "https://123"
+      },
+      {
+        "Website": "123https://"
+      },
+      {
+        "Website": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Website"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Master Data Steward to correct the Website prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-067",
+    "family": "text prefixes",
+    "sourceText": "\"Batch\" must start with \"LOT.\". Priority: Medium / High. Action: Route to the Master Data Steward to correct the Batch prefix.",
+    "records": [
+      {
+        "Batch": "LOT.123"
+      },
+      {
+        "Batch": "123LOT."
+      },
+      {
+        "Batch": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Batch"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Master Data Steward to correct the Batch prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-068",
+    "family": "text prefixes",
+    "sourceText": "\"Route Code\" must start with \"N-\". Priority: Medium. Action item: Route to the Master Data Steward to correct the Route Code prefix.",
+    "records": [
+      {
+        "Route Code": "N-123"
+      },
+      {
+        "Route Code": "123N-"
+      },
+      {
+        "Route Code": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Route Code"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Master Data Steward to correct the Route Code prefix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-069",
+    "family": "text suffixes",
+    "sourceText": "\"Email\" must end with \"@example.test\", case-insensitive. Priority: Low / Medium. Recommended action: Route to Data Operations to verify the Email suffix.",
+    "records": [
+      {
+        "Email": "record@EXAMPLE.TEST"
+      },
+      {
+        "Email": "@example.testextra"
+      },
+      {
+        "Email": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Data Operations to verify the Email suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-070",
+    "family": "text suffixes",
+    "sourceText": "\"Filename\" must end with \".csv\", case-insensitive. Priority: Low. Action: Route to Data Operations to verify the Filename suffix.",
+    "records": [
+      {
+        "Filename": "record.CSV"
+      },
+      {
+        "Filename": ".csvextra"
+      },
+      {
+        "Filename": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Filename"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Data Operations to verify the Filename suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-071",
+    "family": "text suffixes",
+    "sourceText": "\"Company Name\" must end with \"Ltd\", case-insensitive. Priority: High. Action item: Route to Data Operations to verify the Company Name suffix.",
+    "records": [
+      {
+        "Company Name": "recordLTD"
+      },
+      {
+        "Company Name": "Ltdextra"
+      },
+      {
+        "Company Name": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Company Name"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Data Operations to verify the Company Name suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-072",
+    "family": "text suffixes",
+    "sourceText": "\"Product Code\" must end with \"-US\", case-insensitive. Priority: Medium / High. Recommended action: Route to Data Operations to verify the Product Code suffix.",
+    "records": [
+      {
+        "Product Code": "record-US"
+      },
+      {
+        "Product Code": "-USextra"
+      },
+      {
+        "Product Code": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Product Code"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Data Operations to verify the Product Code suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-073",
+    "family": "text suffixes",
+    "sourceText": "\"Document\" must end with \".pdf\", case-insensitive. Priority: Medium. Action: Route to Data Operations to verify the Document suffix.",
+    "records": [
+      {
+        "Document": "record.PDF"
+      },
+      {
+        "Document": ".pdfextra"
+      },
+      {
+        "Document": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Document"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Data Operations to verify the Document suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-074",
+    "family": "text suffixes",
+    "sourceText": "\"Locale\" must end with \"_BR\", case-insensitive. Priority: Low / Medium. Action item: Route to Data Operations to verify the Locale suffix.",
+    "records": [
+      {
+        "Locale": "record_BR"
+      },
+      {
+        "Locale": "_BRextra"
+      },
+      {
+        "Locale": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Locale"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Data Operations to verify the Locale suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-075",
+    "family": "text suffixes",
+    "sourceText": "\"Export Name\" must end with \".xlsx\", case-insensitive. Priority: Low. Recommended action: Route to Data Operations to verify the Export Name suffix.",
+    "records": [
+      {
+        "Export Name": "record.XLSX"
+      },
+      {
+        "Export Name": ".xlsxextra"
+      },
+      {
+        "Export Name": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Export Name"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Data Operations to verify the Export Name suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-076",
+    "family": "text suffixes",
+    "sourceText": "\"Unit Label\" must end with \"kg\", case-insensitive. Priority: High. Action: Route to Data Operations to verify the Unit Label suffix.",
+    "records": [
+      {
+        "Unit Label": "recordKG"
+      },
+      {
+        "Unit Label": "kgextra"
+      },
+      {
+        "Unit Label": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Unit Label"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Data Operations to verify the Unit Label suffix.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-077",
+    "family": "allowed values",
+    "sourceText": "\"Status\" must be one of \"Active\", \"Inactive\", ignoring case. Priority: Medium / High. Action item: Route to the Account Owner to select an approved Status value.",
+    "records": [
+      {
+        "Status": "ACTIVE"
+      },
+      {
+        "Status": "UNKNOWN"
+      },
+      {
+        "Status": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Status"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to select an approved Status value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-078",
+    "family": "allowed values",
+    "sourceText": "\"Currency\" must be one of \"USD\", \"EUR\", \"BRL\", ignoring case. Priority: Medium. Recommended action: Route to the Account Owner to select an approved Currency value.",
+    "records": [
+      {
+        "Currency": "USD"
+      },
+      {
+        "Currency": "UNKNOWN"
+      },
+      {
+        "Currency": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Currency"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to select an approved Currency value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-079",
+    "family": "allowed values",
+    "sourceText": "\"Channel\" must be one of \"Direct\", \"Partner\", ignoring case. Priority: Low / Medium. Action: Route to the Account Owner to select an approved Channel value.",
+    "records": [
+      {
+        "Channel": "DIRECT"
+      },
+      {
+        "Channel": "UNKNOWN"
+      },
+      {
+        "Channel": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Channel"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to select an approved Channel value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-080",
+    "family": "allowed values",
+    "sourceText": "\"Consent\" must be one of \"Yes\", \"No\", ignoring case. Priority: Low. Action item: Route to the Account Owner to select an approved Consent value.",
+    "records": [
+      {
+        "Consent": "YES"
+      },
+      {
+        "Consent": "UNKNOWN"
+      },
+      {
+        "Consent": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Consent"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to select an approved Consent value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-081",
+    "family": "allowed values",
+    "sourceText": "\"Risk Level\" must be one of \"Low\", \"Medium\", \"High\", ignoring case. Priority: High. Recommended action: Route to the Account Owner to select an approved Risk Level value.",
+    "records": [
+      {
+        "Risk Level": "LOW"
+      },
+      {
+        "Risk Level": "UNKNOWN"
+      },
+      {
+        "Risk Level": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Risk Level"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to select an approved Risk Level value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-082",
+    "family": "allowed values",
+    "sourceText": "\"Unit\" must be one of \"kg\", \"g\", ignoring case. Priority: Medium / High. Action: Route to the Account Owner to select an approved Unit value.",
+    "records": [
+      {
+        "Unit": "KG"
+      },
+      {
+        "Unit": "UNKNOWN"
+      },
+      {
+        "Unit": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Unit"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to select an approved Unit value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-083",
+    "family": "allowed values",
+    "sourceText": "\"Language\" must be one of \"en\", \"pt\", \"es\", ignoring case. Priority: Medium. Action item: Route to the Account Owner to select an approved Language value.",
+    "records": [
+      {
+        "Language": "EN"
+      },
+      {
+        "Language": "UNKNOWN"
+      },
+      {
+        "Language": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Language"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to select an approved Language value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-084",
+    "family": "allowed values",
+    "sourceText": "\"Account Type\" must be one of \"Grower\", \"Distributor\", ignoring case. Priority: Low / Medium. Recommended action: Route to the Account Owner to select an approved Account Type value.",
+    "records": [
+      {
+        "Account Type": "GROWER"
+      },
+      {
+        "Account Type": "UNKNOWN"
+      },
+      {
+        "Account Type": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Type"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to select an approved Account Type value.",
+      "flaggedRows": [
+        3,
+        4
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-085",
+    "family": "numeric inputs",
+    "sourceText": "\"Age\" must be between 18 and 120 inclusive. Priority: Low. Action: Route to Data Quality to correct the numeric Age input.",
+    "records": [
+      {
+        "Age": 18
+      },
+      {
+        "Age": "120"
+      },
+      {
+        "Age": 17
+      },
+      {
+        "Age": 121
+      },
+      {
+        "Age": ""
+      },
+      {
+        "Age": true
+      },
+      {
+        "Age": "not a number"
+      },
+      {
+        "Age": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Age"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Data Quality to correct the numeric Age input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-086",
+    "family": "numeric inputs",
+    "sourceText": "\"Quantity\" must be between 1 and 999 inclusive. Priority: High. Action item: Route to Data Quality to correct the numeric Quantity input.",
+    "records": [
+      {
+        "Quantity": 1
+      },
+      {
+        "Quantity": "999"
+      },
+      {
+        "Quantity": 0
+      },
+      {
+        "Quantity": 1000
+      },
+      {
+        "Quantity": ""
+      },
+      {
+        "Quantity": true
+      },
+      {
+        "Quantity": "not a number"
+      },
+      {
+        "Quantity": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Quantity"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Data Quality to correct the numeric Quantity input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-087",
+    "family": "numeric inputs",
+    "sourceText": "\"Discount\" must be between 0 and 100 inclusive. Priority: Medium / High. Recommended action: Route to Data Quality to correct the numeric Discount input.",
+    "records": [
+      {
+        "Discount": 0
+      },
+      {
+        "Discount": "100"
+      },
+      {
+        "Discount": -1
+      },
+      {
+        "Discount": 101
+      },
+      {
+        "Discount": ""
+      },
+      {
+        "Discount": true
+      },
+      {
+        "Discount": "not a number"
+      },
+      {
+        "Discount": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Discount"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Data Quality to correct the numeric Discount input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-088",
+    "family": "numeric inputs",
+    "sourceText": "\"Temperature\" must be between -20 and 50 inclusive. Priority: Medium. Action: Route to Data Quality to correct the numeric Temperature input.",
+    "records": [
+      {
+        "Temperature": -20
+      },
+      {
+        "Temperature": "50"
+      },
+      {
+        "Temperature": -21
+      },
+      {
+        "Temperature": 51
+      },
+      {
+        "Temperature": ""
+      },
+      {
+        "Temperature": true
+      },
+      {
+        "Temperature": "not a number"
+      },
+      {
+        "Temperature": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Temperature"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to Data Quality to correct the numeric Temperature input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-089",
+    "family": "numeric inputs",
+    "sourceText": "\"Score\" must be between 0 and 1 inclusive. Priority: Low / Medium. Action item: Route to Data Quality to correct the numeric Score input.",
+    "records": [
+      {
+        "Score": 0
+      },
+      {
+        "Score": "1"
+      },
+      {
+        "Score": -1
+      },
+      {
+        "Score": 2
+      },
+      {
+        "Score": ""
+      },
+      {
+        "Score": true
+      },
+      {
+        "Score": "not a number"
+      },
+      {
+        "Score": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Score"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Data Quality to correct the numeric Score input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-090",
+    "family": "numeric inputs",
+    "sourceText": "\"Lead Time\" must be between 0 and 365 inclusive. Priority: Low. Recommended action: Route to Data Quality to correct the numeric Lead Time input.",
+    "records": [
+      {
+        "Lead Time": 0
+      },
+      {
+        "Lead Time": "365"
+      },
+      {
+        "Lead Time": -1
+      },
+      {
+        "Lead Time": 366
+      },
+      {
+        "Lead Time": ""
+      },
+      {
+        "Lead Time": true
+      },
+      {
+        "Lead Time": "not a number"
+      },
+      {
+        "Lead Time": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Lead Time"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Data Quality to correct the numeric Lead Time input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-091",
+    "family": "numeric inputs",
+    "sourceText": "\"Latitude\" must be between -90 and 90 inclusive. Priority: High. Action: Route to Data Quality to correct the numeric Latitude input.",
+    "records": [
+      {
+        "Latitude": -90
+      },
+      {
+        "Latitude": "90"
+      },
+      {
+        "Latitude": -91
+      },
+      {
+        "Latitude": 91
+      },
+      {
+        "Latitude": ""
+      },
+      {
+        "Latitude": true
+      },
+      {
+        "Latitude": "not a number"
+      },
+      {
+        "Latitude": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Latitude"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Data Quality to correct the numeric Latitude input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-092",
+    "family": "numeric inputs",
+    "sourceText": "\"Unit Price\" must be between 0.01 and 10000 inclusive. Priority: Medium / High. Action item: Route to Data Quality to correct the numeric Unit Price input.",
+    "records": [
+      {
+        "Unit Price": 0.01
+      },
+      {
+        "Unit Price": "10000"
+      },
+      {
+        "Unit Price": -0.99
+      },
+      {
+        "Unit Price": 10001
+      },
+      {
+        "Unit Price": ""
+      },
+      {
+        "Unit Price": true
+      },
+      {
+        "Unit Price": "not a number"
+      },
+      {
+        "Unit Price": "0x10"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Unit Price"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Data Quality to correct the numeric Unit Price input.",
+      "flaggedRows": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-093",
+    "family": "exact uniqueness",
+    "sourceText": "\"Customer ID\" must be unique across records. Priority: Medium. Recommended action: Route to the Master Data Steward to investigate duplicate Customer ID values.",
+    "records": [
+      {
+        "Customer ID": "ABC-1"
+      },
+      {
+        "Customer ID": "ABC-1"
+      },
+      {
+        "Customer ID": "abc-1"
+      },
+      {
+        "Customer ID": "ABC1"
+      },
+      {
+        "Customer ID": ""
+      },
+      {
+        "Customer ID": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer ID"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Customer ID values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-094",
+    "family": "exact uniqueness",
+    "sourceText": "\"Invoice ID\" must be unique across records. Priority: Low / Medium. Action: Route to the Master Data Steward to investigate duplicate Invoice ID values.",
+    "records": [
+      {
+        "Invoice ID": "ABC-1"
+      },
+      {
+        "Invoice ID": "ABC-1"
+      },
+      {
+        "Invoice ID": "abc-1"
+      },
+      {
+        "Invoice ID": "ABC1"
+      },
+      {
+        "Invoice ID": ""
+      },
+      {
+        "Invoice ID": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Invoice ID"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Invoice ID values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-095",
+    "family": "exact uniqueness",
+    "sourceText": "\"Order ID\" must be unique across records. Priority: Low. Action item: Route to the Master Data Steward to investigate duplicate Order ID values.",
+    "records": [
+      {
+        "Order ID": "ABC-1"
+      },
+      {
+        "Order ID": "ABC-1"
+      },
+      {
+        "Order ID": "abc-1"
+      },
+      {
+        "Order ID": "ABC1"
+      },
+      {
+        "Order ID": ""
+      },
+      {
+        "Order ID": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Order ID"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Order ID values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-096",
+    "family": "exact uniqueness",
+    "sourceText": "\"External Key\" must be unique across records. Priority: High. Recommended action: Route to the Master Data Steward to investigate duplicate External Key values.",
+    "records": [
+      {
+        "External Key": "ABC-1"
+      },
+      {
+        "External Key": "ABC-1"
+      },
+      {
+        "External Key": "abc-1"
+      },
+      {
+        "External Key": "ABC1"
+      },
+      {
+        "External Key": ""
+      },
+      {
+        "External Key": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "External Key"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate External Key values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-097",
+    "family": "exact uniqueness",
+    "sourceText": "\"SKU\" must be unique across records. Priority: Medium / High. Action: Route to the Master Data Steward to investigate duplicate SKU values.",
+    "records": [
+      {
+        "SKU": "ABC-1"
+      },
+      {
+        "SKU": "ABC-1"
+      },
+      {
+        "SKU": "abc-1"
+      },
+      {
+        "SKU": "ABC1"
+      },
+      {
+        "SKU": ""
+      },
+      {
+        "SKU": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "SKU"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate SKU values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-098",
+    "family": "exact uniqueness",
+    "sourceText": "\"Serial Number\" must be unique across records. Priority: Medium. Action item: Route to the Master Data Steward to investigate duplicate Serial Number values.",
+    "records": [
+      {
+        "Serial Number": "ABC-1"
+      },
+      {
+        "Serial Number": "ABC-1"
+      },
+      {
+        "Serial Number": "abc-1"
+      },
+      {
+        "Serial Number": "ABC1"
+      },
+      {
+        "Serial Number": ""
+      },
+      {
+        "Serial Number": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Serial Number"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Serial Number values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-099",
+    "family": "exact uniqueness",
+    "sourceText": "\"Email\" must be unique across records. Priority: Low / Medium. Recommended action: Route to the Master Data Steward to investigate duplicate Email values.",
+    "records": [
+      {
+        "Email": "ABC-1"
+      },
+      {
+        "Email": "ABC-1"
+      },
+      {
+        "Email": "abc-1"
+      },
+      {
+        "Email": "ABC1"
+      },
+      {
+        "Email": ""
+      },
+      {
+        "Email": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Email values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-100",
+    "family": "exact uniqueness",
+    "sourceText": "\"Registration Code\" must be unique across records. Priority: Low. Action: Route to the Master Data Steward to investigate duplicate Registration Code values.",
+    "records": [
+      {
+        "Registration Code": "ABC-1"
+      },
+      {
+        "Registration Code": "ABC-1"
+      },
+      {
+        "Registration Code": "abc-1"
+      },
+      {
+        "Registration Code": "ABC1"
+      },
+      {
+        "Registration Code": ""
+      },
+      {
+        "Registration Code": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Registration Code"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Master Data Steward to investigate duplicate Registration Code values.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-101",
+    "family": "legacy vocabulary",
+    "sourceText": "Flag rows with a missing email. Priority: High. Action item: Route to the Account Owner to supply the email.",
+    "records": [
+      {
+        "Email": "ok@example.test"
+      },
+      {
+        "Email": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to supply the email.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-102",
+    "family": "legacy vocabulary",
+    "sourceText": "Phone is required. Priority: Medium / High. Recommended action: Route to Customer Service to supply the phone.",
+    "records": [
+      {
+        "Phone": "2125551234"
+      },
+      {
+        "Phone": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Phone"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to Customer Service to supply the phone.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "missing"
+    }
+  },
+  {
+    "id": "BENCH-103",
+    "family": "legacy vocabulary",
+    "sourceText": "Email must have a valid format. Priority: Medium. Action: Route to the Account Owner to verify the email format.",
+    "records": [
+      {
+        "Email": "ok@example.test"
+      },
+      {
+        "Email": "invalid-email"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to verify the email format.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-104",
+    "family": "legacy vocabulary",
+    "sourceText": "CPF must be valid. Priority: Low / Medium. Action item: Route to the Data Steward to verify the CPF checksum.",
+    "records": [
+      {
+        "CPF": "52998224725"
+      },
+      {
+        "CPF": "11111111111"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "CPF"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Data Steward to verify the CPF checksum.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-105",
+    "family": "legacy vocabulary",
+    "sourceText": "CNPJ must be valid. Priority: Low. Recommended action: Route to the Data Steward to verify the CNPJ checksum.",
+    "records": [
+      {
+        "CNPJ": "11222333000181"
+      },
+      {
+        "CNPJ": "11111111111111"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "CNPJ"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Data Steward to verify the CNPJ checksum.",
+      "flaggedRows": [
+        3
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-106",
+    "family": "legacy vocabulary",
+    "sourceText": "Find duplicate customers with the same email. Priority: High. Action: Route to Customer Operations to validate the duplicate email.",
+    "records": [
+      {
+        "Email": "same@example.test"
+      },
+      {
+        "Email": "same@example.test"
+      },
+      {
+        "Email": "other@example.test"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "high",
+      "actionItem": "Route to Customer Operations to validate the duplicate email.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "duplicate"
+    }
+  },
+  {
+    "id": "BENCH-107",
+    "family": "legacy vocabulary",
+    "sourceText": "Find duplicates with the same name and phone. Priority: Medium / High. Action item: Route to the Master Data Steward to review the matching name and phone.",
+    "records": [
+      {
+        "Name": "Alice",
+        "Phone": "2125551234"
+      },
+      {
+        "Name": "Alice",
+        "Phone": "2125551234"
+      },
+      {
+        "Name": "Bob",
+        "Phone": "2125551234"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Name",
+        "Phone"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Master Data Steward to review the matching name and phone.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "duplicate"
+    }
+  },
+  {
+    "id": "BENCH-108",
+    "family": "legacy vocabulary",
+    "sourceText": "The same CPF cannot have different names. Priority: Medium. Recommended action: Route to the Account Owner to resolve the conflicting names.",
+    "records": [
+      {
+        "CPF": "52998224725",
+        "Name": "Alice"
+      },
+      {
+        "CPF": "52998224725",
+        "Name": "Bob"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "CPF",
+        "Name"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to resolve the conflicting names.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "consistency"
+    }
+  },
+  {
+    "id": "BENCH-109",
+    "family": "legacy vocabulary",
+    "sourceText": "Customer ID must be unique. Priority: Low / Medium. Action: Route to Master Data to review the repeated customer identifier.",
+    "records": [
+      {
+        "Customer ID": "100"
+      },
+      {
+        "Customer ID": "100"
+      },
+      {
+        "Customer ID": "200"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer ID"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to Master Data to review the repeated customer identifier.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "uniqueness"
+    }
+  },
+  {
+    "id": "BENCH-110",
+    "family": "legacy vocabulary",
+    "sourceText": "Find duplicate names with at least 90% similarity. Priority: Low. Action item: Route to Master Data for similarity review before merging.",
+    "records": [
+      {
+        "Name": "Green Seeds"
+      },
+      {
+        "Name": "Green Seed"
+      },
+      {
+        "Name": "Unrelated Customer"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Name"
+      ],
+      "priority": "low",
+      "actionItem": "Route to Master Data for similarity review before merging.",
+      "flaggedRows": [
+        2,
+        3
+      ],
+      "category": "similarity"
+    }
+  },
+  {
+    "id": "BENCH-111",
+    "family": "missing input columns",
+    "sourceText": "\"Email\" is required. Priority: High. Recommended action: Route to the Data Steward to map the missing Email input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "high",
+      "actionItem": "Route to the Data Steward to map the missing Email input."
+    }
+  },
+  {
+    "id": "BENCH-112",
+    "family": "missing input columns",
+    "sourceText": "\"State\" is required. Priority: Medium / High. Action: Route to the Data Steward to map the missing State input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "medium_high",
+      "actionItem": "Route to the Data Steward to map the missing State input."
+    }
+  },
+  {
+    "id": "BENCH-113",
+    "family": "missing input columns",
+    "sourceText": "\"Postal code\" is required. Priority: Medium. Action item: Route to the Data Steward to map the missing Postal code input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "medium",
+      "actionItem": "Route to the Data Steward to map the missing Postal code input."
+    }
+  },
+  {
+    "id": "BENCH-114",
+    "family": "missing input columns",
+    "sourceText": "\"Proposed Veg Owner FND ID\" is required. Priority: Low / Medium. Recommended action: Route to the Data Steward to map the missing Proposed Veg Owner FND ID input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "low_medium",
+      "actionItem": "Route to the Data Steward to map the missing Proposed Veg Owner FND ID input."
+    }
+  },
+  {
+    "id": "BENCH-115",
+    "family": "missing input columns",
+    "sourceText": "\"Tax ID\" is required. Priority: Low. Action: Route to the Data Steward to map the missing Tax ID input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "low",
+      "actionItem": "Route to the Data Steward to map the missing Tax ID input."
+    }
+  },
+  {
+    "id": "BENCH-116",
+    "family": "missing input columns",
+    "sourceText": "\"Sales Office\" is required. Priority: High. Action item: Route to the Data Steward to map the missing Sales Office input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "high",
+      "actionItem": "Route to the Data Steward to map the missing Sales Office input."
+    }
+  },
+  {
+    "id": "BENCH-117",
+    "family": "missing input columns",
+    "sourceText": "\"Segmentation\" is required. Priority: Medium / High. Recommended action: Route to the Data Steward to map the missing Segmentation input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "medium_high",
+      "actionItem": "Route to the Data Steward to map the missing Segmentation input."
+    }
+  },
+  {
+    "id": "BENCH-118",
+    "family": "missing input columns",
+    "sourceText": "\"Description\" is required. Priority: Medium. Action: Route to the Data Steward to map the missing Description input.",
+    "records": [
+      {
+        "Unrelated": "present"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "medium",
+      "actionItem": "Route to the Data Steward to map the missing Description input."
+    }
+  },
+  {
+    "id": "BENCH-119",
+    "family": "ambiguous input columns",
+    "sourceText": "\"Email\" must not be blank. Priority: Low / Medium. Action item: Route to the analyst to choose the intended email column.",
+    "records": [
+      {
+        "Email Address": "primary@example.test",
+        "E-mail": "secondary@example.test"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "low_medium",
+      "actionItem": "Route to the analyst to choose the intended email column."
+    }
+  },
+  {
+    "id": "BENCH-120",
+    "family": "stale input mapping",
+    "sourceText": "\"Customer Code\" is mandatory. Priority: Low. Recommended action: Route to the analyst to replace the stale column mapping.",
+    "records": [
+      {
+        "Customer Code": "123"
+      }
+    ],
+    "expected": {
+      "status": "needs_mapping",
+      "fields": [],
+      "priority": "low",
+      "actionItem": "Route to the analyst to replace the stale column mapping."
+    },
+    "columnMappings": {
+      "Customer Code": "deleted-column"
+    }
+  },
+  {
+    "id": "BENCH-121",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "The proposed owner must be identifiable. If the Proposed Veg Owner FND ID is blank. Priority: High. Action: Route to the Account Owner to resolve local validation 1.",
+    "records": [
+      {
+        "Proposed Veg Owner FND ID": "ANY-ID"
+      },
+      {
+        "Proposed Veg Owner FND ID": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Proposed Veg Owner FND ID"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to resolve local validation 1.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-122",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "SFDC Veg Owner, Veg Owner Name and Proposed Veg Owner FND ID must identify the same person. Priority: Medium / High. Action item: Route to the Account Owner to resolve local validation 2.",
+    "records": [
+      {
+        "SFDC Veg Owner": "Alice",
+        "Veg Owner Name": "Alice",
+        "Proposed Veg Owner FND ID": "Alice"
+      },
+      {
+        "SFDC Veg Owner": "Alice",
+        "Veg Owner Name": "Alice",
+        "Proposed Veg Owner FND ID": "Bob"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "SFDC Veg Owner",
+        "Veg Owner Name",
+        "Proposed Veg Owner FND ID"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to resolve local validation 2.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-123",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "If Sales Organization, Sales Group and Sales Office be different. Priority: Medium. Recommended action: Route to the Account Owner to resolve local validation 3.",
+    "records": [
+      {
+        "Sales Organization": "A",
+        "Sales Group": "A",
+        "Sales Office": "A"
+      },
+      {
+        "Sales Organization": "A",
+        "Sales Group": "B",
+        "Sales Office": "A"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Sales Organization",
+        "Sales Group",
+        "Sales Office"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to resolve local validation 3.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-124",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "The owner must align with the commercial structure. If the current owner does not exists. Priority: Low / Medium. Action: Route to the Account Owner to resolve local validation 4.",
+    "records": [
+      {
+        "Current Owner": "anyone"
+      },
+      {
+        "Current Owner": null
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Current Owner"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to resolve local validation 4.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-125",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "\"Billing Country\" and \"Shipping Country\" must match. Priority: Low. Action item: Route to the Account Owner to resolve local validation 5.",
+    "records": [
+      {
+        "Billing Country": "US",
+        "Shipping Country": "US"
+      },
+      {
+        "Billing Country": "US",
+        "Shipping Country": "CA"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Billing Country",
+        "Shipping Country"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to resolve local validation 5.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-126",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "If \"Status\" = \"Active\", \"Phone\" cannot be empty. Priority: High. Recommended action: Route to the Account Owner to resolve local validation 6.",
+    "records": [
+      {
+        "Status": "Active",
+        "Phone": ""
+      },
+      {
+        "Status": "Inactive",
+        "Phone": ""
+      },
+      {
+        "Status": "Active",
+        "Phone": "2125551234"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Status",
+        "Phone"
+      ],
+      "priority": "high",
+      "actionItem": "Route to the Account Owner to resolve local validation 6.",
+      "flaggedRows": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "BENCH-127",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "If \"Country\" = \"US\", \"Postal code\" must match ZIP format. Priority: Medium / High. Action: Route to the Account Owner to resolve local validation 7.",
+    "records": [
+      {
+        "Country": "US",
+        "Postal code": "00501"
+      },
+      {
+        "Country": "USA",
+        "Postal code": "00501-1234"
+      },
+      {
+        "Country": "CA",
+        "Postal code": "K1A 0B1"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Country",
+        "Postal code"
+      ],
+      "priority": "medium_high",
+      "actionItem": "Route to the Account Owner to resolve local validation 7.",
+      "flaggedRows": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "BENCH-128",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "If Account Type equals SME and Veg Segmentation Type (SFDC) is blank. Priority: Medium. Action item: Route to the Account Owner to resolve local validation 8.",
+    "records": [
+      {
+        "Account Type": "SME",
+        "Veg Segmentation Type (SFDC)": ""
+      },
+      {
+        "Account Type": "Other",
+        "Veg Segmentation Type (SFDC)": ""
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Account Type",
+        "Veg Segmentation Type (SFDC)"
+      ],
+      "priority": "medium",
+      "actionItem": "Route to the Account Owner to resolve local validation 8.",
+      "flaggedRows": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "BENCH-129",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "\"Postal code\" must match ZIP or ZIP+4 format. Priority: Low / Medium. Recommended action: Route to the Account Owner to resolve local validation 9.",
+    "records": [
+      {
+        "Postal code": "00501"
+      },
+      {
+        "Postal code": "00501-1234"
+      },
+      {
+        "Postal code": "0050A"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Postal code"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the Account Owner to resolve local validation 9.",
+      "flaggedRows": [
+        4
+      ]
+    }
+  },
+  {
+    "id": "BENCH-130",
+    "family": "dataset-only conditions and comparisons",
+    "sourceText": "If \"Status\" is \"Active\", \"Email\" must be a valid email address. Priority: Low. Action: Route to the Account Owner to resolve local validation 10.",
+    "records": [
+      {
+        "Status": "Active",
+        "Email": "bad"
+      },
+      {
+        "Status": "Inactive",
+        "Email": "bad"
+      },
+      {
+        "Status": "Active",
+        "Email": "good@example.test"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Status",
+        "Email"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the Account Owner to resolve local validation 10.",
+      "flaggedRows": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "BENCH-131",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Make every customer record perfect. Priority: High. Action item: Route to the analyst to clarify the requested operation 1.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "high",
+      "actionItem": "Route to the analyst to clarify the requested operation 1."
+    }
+  },
+  {
+    "id": "BENCH-132",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Predict likely customer churn from Notes. Priority: Medium / High. Recommended action: Route to the analyst to clarify the requested operation 2.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium_high",
+      "actionItem": "Route to the analyst to clarify the requested operation 2."
+    }
+  },
+  {
+    "id": "BENCH-133",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "If \"Status\" is \"Active\", \"Email\" is required unless the customer opted out. Priority: Medium. Action: Route to the analyst to clarify the requested operation 3.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 3."
+    }
+  },
+  {
+    "id": "BENCH-134",
+    "family": "unquoted fields and single-quoted text fragments",
+    "sourceText": "Email must end with '@example.test'. Priority: Low / Medium. Action item: Route to the analyst to clarify the requested operation 4.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Email"
+      ],
+      "priority": "low_medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 4.",
+      "flaggedRows": [],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-135",
+    "family": "unquoted fields and single-quoted text fragments",
+    "sourceText": "Customer Name must contain 'Ltd'. Priority: Low. Recommended action: Route to the analyst to clarify the requested operation 5.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "valid",
+      "fields": [
+        "Customer Name"
+      ],
+      "priority": "low",
+      "actionItem": "Route to the analyst to clarify the requested operation 5.",
+      "flaggedRows": [
+        2
+      ],
+      "category": "validation"
+    }
+  },
+  {
+    "id": "BENCH-136",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"Notes\" must match the regular expression \"(a+)+$\". Priority: High. Action: Route to the analyst to clarify the requested operation 6.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "high",
+      "actionItem": "Route to the analyst to clarify the requested operation 6."
+    }
+  },
+  {
+    "id": "BENCH-137",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"Score\" must be between 100 and 0. Priority: Medium / High. Action item: Route to the analyst to clarify the requested operation 7.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium_high",
+      "actionItem": "Route to the analyst to clarify the requested operation 7."
+    }
+  },
+  {
+    "id": "BENCH-138",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"SKU\" must contain \"\". Priority: Medium. Recommended action: Route to the analyst to clarify the requested operation 8.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 8."
+    }
+  },
+  {
+    "id": "BENCH-139",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Email must have a valid format only if Account Type is Corporate. Priority: Low / Medium. Action: Route to the analyst to clarify the requested operation 9.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low_medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 9."
+    }
+  },
+  {
+    "id": "BENCH-140",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Do not flag missing email values. Priority: Low. Action item: Route to the analyst to clarify the requested operation 10.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low",
+      "actionItem": "Route to the analyst to clarify the requested operation 10."
+    }
+  },
+  {
+    "id": "BENCH-141",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Never check invalid CPF values. Priority: High. Recommended action: Route to the analyst to clarify the requested operation 11.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "high",
+      "actionItem": "Route to the analyst to clarify the requested operation 11."
+    }
+  },
+  {
+    "id": "BENCH-142",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"Amount\" must be numeric and greater than 0. Priority: Medium / High. Action: Route to the analyst to clarify the requested operation 12.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium_high",
+      "actionItem": "Route to the analyst to clarify the requested operation 12."
+    }
+  },
+  {
+    "id": "BENCH-143",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Birth Date must be before today. Priority: Medium. Action item: Route to the analyst to clarify the requested operation 13.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 13."
+    }
+  },
+  {
+    "id": "BENCH-144",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"Notes\" must contain \"alpha\" or \"beta\". Priority: Low / Medium. Recommended action: Route to the analyst to clarify the requested operation 14.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low_medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 14."
+    }
+  },
+  {
+    "id": "BENCH-145",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "\"Notes\" must contain \"alpha\" and \"Email\" must be valid. Priority: Low. Action: Route to the analyst to clarify the requested operation 15.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low",
+      "actionItem": "Route to the analyst to clarify the requested operation 15."
+    }
+  },
+  {
+    "id": "BENCH-146",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Delete every row whose email is invalid. Priority: High. Action item: Route to the analyst to clarify the requested operation 16.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "high",
+      "actionItem": "Route to the analyst to clarify the requested operation 16."
+    }
+  },
+  {
+    "id": "BENCH-147",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Automatically merge duplicate customers using email. Priority: Medium / High. Recommended action: Route to the analyst to clarify the requested operation 17.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium_high",
+      "actionItem": "Route to the analyst to clarify the requested operation 17."
+    }
+  },
+  {
+    "id": "BENCH-148",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "For customers in the north region, flag a missing phone. Priority: Medium. Action: Route to the analyst to clarify the requested operation 18.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 18."
+    }
+  },
+  {
+    "id": "BENCH-149",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Flag overdue invoices. Priority: Low / Medium. Action item: Route to the analyst to clarify the requested operation 19.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low_medium",
+      "actionItem": "Route to the analyst to clarify the requested operation 19."
+    }
+  },
+  {
+    "id": "BENCH-150",
+    "family": "unsupported or ambiguous intent",
+    "sourceText": "Validate Tax Code against the tax authority website. Priority: Low. Recommended action: Route to the analyst to clarify the requested operation 20.",
+    "records": [
+      {
+        "Notes": "alpha",
+        "Email": "contact@example.test",
+        "Customer Name": "Acme",
+        "CPF": "52998224725",
+        "Amount": 42,
+        "Birth Date": "2000-01-01",
+        "Phone": "2125551234",
+        "Score": 10,
+        "SKU": "VEG-1",
+        "Status": "Active",
+        "Account Type": "Corporate",
+        "Tax Code": "CODE"
+      }
+    ],
+    "expected": {
+      "status": "unsupported",
+      "priority": "low",
+      "actionItem": "Route to the analyst to clarify the requested operation 20."
+    }
+  }
+]

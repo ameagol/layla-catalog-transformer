@@ -1,0 +1,299 @@
+1. Transactional accounts must have a Vegetable owner. If an account is classified as a Transactional Account and its SFDC Veg Owner field is blank, flag a high-priority missing-owner issue. Route it to the Commercial Data Steward to assign an accountable owner.
+
+2. The proposed owner must exist. If the Proposed Veg Owner FND ID is blank, flag this as a high-priority issue and route it to the Data Steward for owner master-data correction.
+
+3. Owner fields must identify the same person. If SFDC Veg Owner, Veg Owner Name, and Proposed Veg Owner FND ID identify different people, flag a medium-priority ownership conflict. Route it to the account's current owner or the Data Steward to confirm the correct assignment.
+
+4. The sales structure must match. If the Sales Organization, Sales Group, and Sales Office are different, flag this as a high-priority issue and route it to Commercial Operations or the Data Steward.
+
+5. The owner must align with the commercial structure. If the current owner does not exist, flag a medium-priority ownership inconsistency. Route it to Commercial Operations for confirmation.
+
+6. Required segmentation must be populated. For account types designated by the SME, the Veg Segmentation Type (SFDC) field must contain a value. If it is blank, flag a medium-priority issue. Route it to the Account Owner to supply the missing value.
+
+7. Country and state must be compatible. For US accounts, the State field must contain a value from the approved US-state list. Flag incompatible values as medium-priority geographic issues and route them to the Account Owner or Data Steward to correct the address data.
+
+8. Postal codes must follow the country's format. US postal codes must match the ZIP format. Flag invalid formats as medium priority and route them to the Account Owner for verification.
+
+9. Contact details must meet the minimum standard. For active or transactional accounts, flag a medium-priority issue if both Phone and Email are blank. Route accounts that fail the applicable standard to the Account Owner.
+
+10. Master identifiers must be unique. If the same MDMi BPID, FNDG ID, or Salesforce ID appears on more than one record, flag a high-priority duplicate master-identifier issue. Route it to the Master Data Steward for investigation.
+
+11. Potential duplicate customers must be reviewed. Flag records as high-priority probable duplicates when their normalized names and postal codes match exactly. Route them to the Master Data Steward for validation before any governed merge.
+
+12. Email must be a valid email address. Priority: Medium / High. Recommended action: Route it to the Account Owner to correct the email address.
+
+13. "Email" is required. Priority: Medium. Action: Route to the Account Owner to complete Email.
+
+14. The "Phone" field is mandatory. Priority: Low / Medium. Action item: Route to the Account Owner to complete Phone.
+
+15. "Description" must not be blank. Priority: Low. Recommended action: Route to the Account Owner to complete Description.
+
+16. "Customer Code" cannot be empty. Priority: High. Action: Route to the Account Owner to complete Customer Code.
+
+17. Flag rows where "Account Name" is missing. Priority: Medium / High. Action item: Route to the Account Owner to complete Account Name.
+
+18. "Country" must have a value. Priority: Medium. Recommended action: Route to the Account Owner to complete Country.
+
+19. "State" is required. Priority: Low / Medium. Action: Route to the Account Owner to complete State.
+
+20. The "Postal code" field is mandatory. Priority: Low. Action item: Route to the Account Owner to complete Postal code.
+
+21. "Tax ID" must not be blank. Priority: High. Recommended action: Route to the Account Owner to complete Tax ID.
+
+22. "SKU" cannot be empty. Priority: Medium / High. Action: Route to the Account Owner to complete SKU.
+
+23. Flag rows where "Cost Center" is missing. Priority: Medium. Action item: Route to the Account Owner to complete Cost Center.
+
+24. "Currency" must have a value. Priority: Low / Medium. Recommended action: Route to the Account Owner to complete Currency.
+
+25. "Sales Office" is required. Priority: Low. Action: Route to the Account Owner to complete Sales Office.
+
+26. The "External Reference" field is mandatory. Priority: High. Action item: Route to the Account Owner to complete External Reference.
+
+27. "Nome completo" must not be blank. Priority: Medium / High. Recommended action: Route to the Account Owner to complete Nome completo.
+
+28. "Delivery Address" cannot be empty. Priority: Medium. Action: Route to the Account Owner to complete Delivery Address.
+
+29. Flag rows where "Source System" is missing. Priority: Low / Medium. Action item: Route to the Account Owner to complete Source System.
+
+30. "Approval Notes" must have a value. Priority: Low. Recommended action: Route to the Account Owner to complete Approval Notes.
+
+31. If "Country" is "US", "State" must not be blank. Priority: High. Action: Route to the Data Steward to complete State for the US scope.
+
+32. If "Account Status" is "Active", "Email" must not be blank. Priority: Medium / High. Action item: Route to the Data Steward to complete Email for the Active scope.
+
+33. If "Account Type" is "Grower", "Segmentation" must not be blank. Priority: Medium. Recommended action: Route to the Data Steward to complete Segmentation for the Grower scope.
+
+34. If "Region" is "North", "Sales Team" must not be blank. Priority: Low / Medium. Action: Route to the Data Steward to complete Sales Team for the North scope.
+
+35. If "Payment Method" is "Transfer", "Bank Reference" must not be blank. Priority: Low. Action item: Route to the Data Steward to complete Bank Reference for the Transfer scope.
+
+36. If "Product Type" is "Seed", "Variety" must not be blank. Priority: High. Recommended action: Route to the Data Steward to complete Variety for the Seed scope.
+
+37. If "Currency" is "USD", "Tax Code" must not be blank. Priority: Medium / High. Action: Route to the Data Steward to complete Tax Code for the USD scope.
+
+38. If "Channel" is "Distributor", "Partner ID" must not be blank. Priority: Medium. Action item: Route to the Data Steward to complete Partner ID for the Distributor scope.
+
+39. If "Delivery Mode" is "Courier", "Postal code" must not be blank. Priority: Low / Medium. Recommended action: Route to the Data Steward to complete Postal code for the Courier scope.
+
+40. If "Approval Status" is "Approved", "Approver" must not be blank. Priority: Low. Action: Route to the Data Steward to complete Approver for the Approved scope.
+
+41. If "Language" is "PT", "Portuguese Description" must not be blank. Priority: High. Action item: Route to the Data Steward to complete Portuguese Description for the PT scope.
+
+42. If "Customer Tier" is "Gold", "Account Manager" must not be blank. Priority: Medium / High. Recommended action: Route to the Data Steward to complete Account Manager for the Gold scope.
+
+43. Flag rows where both "Phone" and "Email" are blank. Priority: Medium. Action: Route to Customer Service to provide Phone or Email.
+
+44. Flag rows where both "Mobile" and "Office Phone" are blank. Priority: Low / Medium. Action item: Route to Customer Service to provide Mobile or Office Phone.
+
+45. Flag rows where both "Primary Email" and "Backup Email" are blank. Priority: Low. Recommended action: Route to Customer Service to provide Primary Email or Backup Email.
+
+46. Flag rows where both "Billing Phone" and "Billing Email" are blank. Priority: High. Action: Route to Customer Service to provide Billing Phone or Billing Email.
+
+47. Flag rows where both "Contact Name" and "Contact ID" are blank. Priority: Medium / High. Action item: Route to Customer Service to provide Contact Name or Contact ID.
+
+48. Flag rows where both "Support Email" and "Support Phone" are blank. Priority: Medium. Recommended action: Route to Customer Service to provide Support Email or Support Phone.
+
+49. "Description" must contain "seed". Priority: Low / Medium. Action: Route to Content Operations to review the seed fragment in Description.
+
+50. "Notes" must not contain "obsolete", ignoring case. Priority: Low. Action item: Route to Content Operations to review the obsolete fragment in Notes.
+
+51. "Account Name" must contain "Ltd". Priority: High. Recommended action: Route to Content Operations to review the Ltd fragment in Account Name.
+
+52. "Internal Notes" must not contain "test customer", ignoring case. Priority: Medium / High. Action: Route to Content Operations to review the test customer fragment in Internal Notes.
+
+53. "Portuguese Description" must contain "café", ignoring case. Priority: Medium. Action item: Route to Content Operations to review the café fragment in Portuguese Description.
+
+54. "Product Notes" must not contain "do not sell". Priority: Low / Medium. Recommended action: Route to Content Operations to review the do not sell fragment in Product Notes.
+
+55. "Email" must contain "@". Priority: Low. Action: Route to Content Operations to review the @ fragment in Email.
+
+56. "Website" must not contain "javascript:", ignoring case. Priority: High. Action item: Route to Content Operations to review the javascript: fragment in Website.
+
+57. "Address" must contain "Street", ignoring case. Priority: Medium / High. Recommended action: Route to Content Operations to review the Street fragment in Address.
+
+58. "Comment" must not contain "<script>". Priority: Medium. Action: Route to Content Operations to review the <script> fragment in Comment.
+
+59. "Product Code" must contain "A.B". Priority: Low / Medium. Action item: Route to Content Operations to review the A.B fragment in Product Code.
+
+60. "Customer Name" must not contain "DUMMY", ignoring case. Priority: Low. Recommended action: Route to Content Operations to review the DUMMY fragment in Customer Name.
+
+61. "SKU" must start with "VEG-". Priority: High. Action: Route to the Master Data Steward to correct the SKU prefix.
+
+62. "Purchase Order" must start with "PO/". Priority: Medium / High. Action item: Route to the Master Data Steward to correct the Purchase Order prefix.
+
+63. "Country Code" must start with "US". Priority: Medium. Recommended action: Route to the Master Data Steward to correct the Country Code prefix.
+
+64. "Telephone" must start with "+1". Priority: Low / Medium. Action: Route to the Master Data Steward to correct the Telephone prefix.
+
+65. "External Key" must start with "EXT_". Priority: Low. Action item: Route to the Master Data Steward to correct the External Key prefix.
+
+66. "Website" must start with "https://". Priority: High. Recommended action: Route to the Master Data Steward to correct the Website prefix.
+
+67. "Batch" must start with "LOT.". Priority: Medium / High. Action: Route to the Master Data Steward to correct the Batch prefix.
+
+68. "Route Code" must start with "N-". Priority: Medium. Action item: Route to the Master Data Steward to correct the Route Code prefix.
+
+69. "Email" must end with "@example.test", case-insensitive. Priority: Low / Medium. Recommended action: Route to Data Operations to verify the Email suffix.
+
+70. "Filename" must end with ".csv", case-insensitive. Priority: Low. Action: Route to Data Operations to verify the Filename suffix.
+
+71. "Company Name" must end with "Ltd", case-insensitive. Priority: High. Action item: Route to Data Operations to verify the Company Name suffix.
+
+72. "Product Code" must end with "-US", case-insensitive. Priority: Medium / High. Recommended action: Route to Data Operations to verify the Product Code suffix.
+
+73. "Document" must end with ".pdf", case-insensitive. Priority: Medium. Action: Route to Data Operations to verify the Document suffix.
+
+74. "Locale" must end with "_BR", case-insensitive. Priority: Low / Medium. Action item: Route to Data Operations to verify the Locale suffix.
+
+75. "Export Name" must end with ".xlsx", case-insensitive. Priority: Low. Recommended action: Route to Data Operations to verify the Export Name suffix.
+
+76. "Unit Label" must end with "kg", case-insensitive. Priority: High. Action: Route to Data Operations to verify the Unit Label suffix.
+
+77. "Status" must be one of "Active", "Inactive", ignoring case. Priority: Medium / High. Action item: Route to the Account Owner to select an approved Status value.
+
+78. "Currency" must be one of "USD", "EUR", "BRL", ignoring case. Priority: Medium. Recommended action: Route to the Account Owner to select an approved Currency value.
+
+79. "Channel" must be one of "Direct", "Partner", ignoring case. Priority: Low / Medium. Action: Route to the Account Owner to select an approved Channel value.
+
+80. "Consent" must be one of "Yes", "No", ignoring case. Priority: Low. Action item: Route to the Account Owner to select an approved Consent value.
+
+81. "Risk Level" must be one of "Low", "Medium", "High", ignoring case. Priority: High. Recommended action: Route to the Account Owner to select an approved Risk Level value.
+
+82. "Unit" must be one of "kg", "g", ignoring case. Priority: Medium / High. Action: Route to the Account Owner to select an approved Unit value.
+
+83. "Language" must be one of "en", "pt", "es", ignoring case. Priority: Medium. Action item: Route to the Account Owner to select an approved Language value.
+
+84. "Account Type" must be one of "Grower", "Distributor", ignoring case. Priority: Low / Medium. Recommended action: Route to the Account Owner to select an approved Account Type value.
+
+85. "Age" must be between 18 and 120 inclusive. Priority: Low. Action: Route to Data Quality to correct the numeric Age input.
+
+86. "Quantity" must be between 1 and 999 inclusive. Priority: High. Action item: Route to Data Quality to correct the numeric Quantity input.
+
+87. "Discount" must be between 0 and 100 inclusive. Priority: Medium / High. Recommended action: Route to Data Quality to correct the numeric Discount input.
+
+88. "Temperature" must be between -20 and 50 inclusive. Priority: Medium. Action: Route to Data Quality to correct the numeric Temperature input.
+
+89. "Score" must be between 0 and 1 inclusive. Priority: Low / Medium. Action item: Route to Data Quality to correct the numeric Score input.
+
+90. "Lead Time" must be between 0 and 365 inclusive. Priority: Low. Recommended action: Route to Data Quality to correct the numeric Lead Time input.
+
+91. "Latitude" must be between -90 and 90 inclusive. Priority: High. Action: Route to Data Quality to correct the numeric Latitude input.
+
+92. "Unit Price" must be between 0.01 and 10000 inclusive. Priority: Medium / High. Action item: Route to Data Quality to correct the numeric Unit Price input.
+
+93. "Customer ID" must be unique across records. Priority: Medium. Recommended action: Route to the Master Data Steward to investigate duplicate Customer ID values.
+
+94. "Invoice ID" must be unique across records. Priority: Low / Medium. Action: Route to the Master Data Steward to investigate duplicate Invoice ID values.
+
+95. "Order ID" must be unique across records. Priority: Low. Action item: Route to the Master Data Steward to investigate duplicate Order ID values.
+
+96. "External Key" must be unique across records. Priority: High. Recommended action: Route to the Master Data Steward to investigate duplicate External Key values.
+
+97. "SKU" must be unique across records. Priority: Medium / High. Action: Route to the Master Data Steward to investigate duplicate SKU values.
+
+98. "Serial Number" must be unique across records. Priority: Medium. Action item: Route to the Master Data Steward to investigate duplicate Serial Number values.
+
+99. "Email" must be unique across records. Priority: Low / Medium. Recommended action: Route to the Master Data Steward to investigate duplicate Email values.
+
+100. "Registration Code" must be unique across records. Priority: Low. Action: Route to the Master Data Steward to investigate duplicate Registration Code values.
+
+101. Flag rows with a missing email. Priority: High. Action item: Route to the Account Owner to supply the email.
+
+102. Phone is required. Priority: Medium / High. Recommended action: Route to Customer Service to supply the phone.
+
+103. Email must have a valid format. Priority: Medium. Action: Route to the Account Owner to verify the email format.
+
+104. CPF must be valid. Priority: Low / Medium. Action item: Route to the Data Steward to verify the CPF checksum.
+
+105. CNPJ must be valid. Priority: Low. Recommended action: Route to the Data Steward to verify the CNPJ checksum.
+
+106. Find duplicate customers with the same email. Priority: High. Action: Route to Customer Operations to validate the duplicate email.
+
+107. Find duplicates with the same name and phone. Priority: Medium / High. Action item: Route to the Master Data Steward to review the matching name and phone.
+
+108. The same CPF cannot have different names. Priority: Medium. Recommended action: Route to the Account Owner to resolve the conflicting names.
+
+109. Customer ID must be unique. Priority: Low / Medium. Action: Route to Master Data to review the repeated customer identifier.
+
+110. Find duplicate names with at least 90% similarity. Priority: Low. Action item: Route to Master Data for similarity review before merging.
+
+111. "Email" is required. Priority: High. Recommended action: Route to the Data Steward to map the missing Email input.
+
+112. "State" is required. Priority: Medium / High. Action: Route to the Data Steward to map the missing State input.
+
+113. "Postal code" is required. Priority: Medium. Action item: Route to the Data Steward to map the missing Postal code input.
+
+114. "Proposed Veg Owner FND ID" is required. Priority: Low / Medium. Recommended action: Route to the Data Steward to map the missing Proposed Veg Owner FND ID input.
+
+115. "Tax ID" is required. Priority: Low. Action: Route to the Data Steward to map the missing Tax ID input.
+
+116. "Sales Office" is required. Priority: High. Action item: Route to the Data Steward to map the missing Sales Office input.
+
+117. "Segmentation" is required. Priority: Medium / High. Recommended action: Route to the Data Steward to map the missing Segmentation input.
+
+118. "Description" is required. Priority: Medium. Action: Route to the Data Steward to map the missing Description input.
+
+119. "Email" must not be blank. Priority: Low / Medium. Action item: Route to the analyst to choose the intended email column.
+
+120. "Customer Code" is mandatory. Priority: Low. Recommended action: Route to the analyst to replace the stale column mapping.
+
+121. The proposed owner must be identifiable. If the Proposed Veg Owner FND ID is blank. Priority: High. Action: Route to the Account Owner to resolve local validation 1.
+
+122. SFDC Veg Owner, Veg Owner Name and Proposed Veg Owner FND ID must identify the same person. Priority: Medium / High. Action item: Route to the Account Owner to resolve local validation 2.
+
+123. If Sales Organization, Sales Group and Sales Office be different. Priority: Medium. Recommended action: Route to the Account Owner to resolve local validation 3.
+
+124. The owner must align with the commercial structure. If the current owner does not exists. Priority: Low / Medium. Action: Route to the Account Owner to resolve local validation 4.
+
+125. "Billing Country" and "Shipping Country" must match. Priority: Low. Action item: Route to the Account Owner to resolve local validation 5.
+
+126. If "Status" = "Active", "Phone" cannot be empty. Priority: High. Recommended action: Route to the Account Owner to resolve local validation 6.
+
+127. If "Country" = "US", "Postal code" must match ZIP format. Priority: Medium / High. Action: Route to the Account Owner to resolve local validation 7.
+
+128. If Account Type equals SME and Veg Segmentation Type (SFDC) is blank. Priority: Medium. Action item: Route to the Account Owner to resolve local validation 8.
+
+129. "Postal code" must match ZIP or ZIP+4 format. Priority: Low / Medium. Recommended action: Route to the Account Owner to resolve local validation 9.
+
+130. If "Status" is "Active", "Email" must be a valid email address. Priority: Low. Action: Route to the Account Owner to resolve local validation 10.
+
+131. Make every customer record perfect. Priority: High. Action item: Route to the analyst to clarify the requested operation 1.
+
+132. Predict likely customer churn from Notes. Priority: Medium / High. Recommended action: Route to the analyst to clarify the requested operation 2.
+
+133. If "Status" is "Active", "Email" is required unless the customer opted out. Priority: Medium. Action: Route to the analyst to clarify the requested operation 3.
+
+134. Email must end with '@example.test'. Priority: Low / Medium. Action item: Route to the analyst to clarify the requested operation 4.
+
+135. Customer Name must contain 'Ltd'. Priority: Low. Recommended action: Route to the analyst to clarify the requested operation 5.
+
+136. "Notes" must match the regular expression "(a+)+$". Priority: High. Action: Route to the analyst to clarify the requested operation 6.
+
+137. "Score" must be between 100 and 0. Priority: Medium / High. Action item: Route to the analyst to clarify the requested operation 7.
+
+138. "SKU" must contain "". Priority: Medium. Recommended action: Route to the analyst to clarify the requested operation 8.
+
+139. Email must have a valid format only if Account Type is Corporate. Priority: Low / Medium. Action: Route to the analyst to clarify the requested operation 9.
+
+140. Do not flag missing email values. Priority: Low. Action item: Route to the analyst to clarify the requested operation 10.
+
+141. Never check invalid CPF values. Priority: High. Recommended action: Route to the analyst to clarify the requested operation 11.
+
+142. "Amount" must be numeric and greater than 0. Priority: Medium / High. Action: Route to the analyst to clarify the requested operation 12.
+
+143. Birth Date must be before today. Priority: Medium. Action item: Route to the analyst to clarify the requested operation 13.
+
+144. "Notes" must contain "alpha" or "beta". Priority: Low / Medium. Recommended action: Route to the analyst to clarify the requested operation 14.
+
+145. "Notes" must contain "alpha" and "Email" must be valid. Priority: Low. Action: Route to the analyst to clarify the requested operation 15.
+
+146. Delete every row whose email is invalid. Priority: High. Action item: Route to the analyst to clarify the requested operation 16.
+
+147. Automatically merge duplicate customers using email. Priority: Medium / High. Recommended action: Route to the analyst to clarify the requested operation 17.
+
+148. For customers in the north region, flag a missing phone. Priority: Medium. Action: Route to the analyst to clarify the requested operation 18.
+
+149. Flag overdue invoices. Priority: Low / Medium. Action item: Route to the analyst to clarify the requested operation 19.
+
+150. Validate Tax Code against the tax authority website. Priority: Low. Recommended action: Route to the analyst to clarify the requested operation 20.

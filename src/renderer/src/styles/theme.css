@@ -1,0 +1,39 @@
+:root {
+  color-scheme: light;
+  --ink: #15211d;
+  --ink-soft: #405049;
+  --paper: #eeece3;
+  --surface: #faf9f3;
+  --surface-raised: #ffffff;
+  --surface-muted: #e5e6dc;
+  --rail: #101815;
+  --rail-soft: #1c2823;
+  --line: #c9cdc0;
+  --line-strong: #8f9a90;
+  --accent: #d9ff57;
+  --accent-ink: #17200d;
+  --signal: #f16b3a;
+  --signal-soft: #ffe2d6;
+  --aqua: #59c8c1;
+  --aqua-soft: #d8f4f0;
+  --warning: #d8941f;
+  --warning-soft: #fff0c9;
+  --danger: #bb3d44;
+  --danger-soft: #f9dadd;
+  --success: #277a55;
+  --success-soft: #d8ecdf;
+  --badge-orange: #a94812;
+  --badge-amber: #82530f;
+  --badge-violet: #7041a0;
+  --badge-violet-soft: #efe3fc;
+  --badge-blue: #246298;
+  --badge-blue-soft: #dfeefe;
+  --badge-teal: #126d68;
+  --badge-rose: #985172;
+  --badge-rose-soft: #f5e5ee;
+  --badge-olive: #5b641b;
+  --badge-olive-soft: #ebefcf;
+  --shadow: 0 18px 50px rgb(21 33 29 / 0.12);
+  --shadow-tight: 0 8px 24px rgb(21 33 29 / 0.1);
+}
+

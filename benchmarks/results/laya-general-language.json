@@ -1,0 +1,1078 @@
+{
+  "generatedAt": "2026-10-02T12:25:56.614Z",
+  "model": "convaiinnovations/laya/multilingual",
+  "confidenceFloor": 0.8,
+  "total": 53,
+  "passed": 51,
+  "unsafeExecutions": 0,
+  "negativeControls": 4,
+  "rejectedIncorrectIntents": 4,
+  "results": [
+    {
+      "source": "check if phone is not empty",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9654,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "check if column phone exists",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9995,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "check if column name is duplicated",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9697,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Phone should not be blank",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9256,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "please make sure Invoice Reference has a value",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9845,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "check for missing Delivery Contact",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9995,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that Currency is populated",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.952,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check for null Customer Ref",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.879,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check if Approved is not empty",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9742,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify the \"tax-id\" field is mandatory",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.8968,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Can you check if Product Code is missing?",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9953,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Please ensure Delivery Contact is provided",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9769,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Validate that Quantity has data",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9116,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Please make sure Notes isn’t blank",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3,
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9685,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Ensure both Phone and Email are populated",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9724,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Find rows where Phone and Email are blank",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9513,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "\"Phone\" must not be empty and \"Email\" must not be empty",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9917,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "If Status is Active, Phone must not be empty",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9639,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that if Order Type = Wholesale then Delivery Contact has a value",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.968,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "If Country is US and Status is Active, Email must not be blank",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.944,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Look for repeated entries in Product Code",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9997,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Product Code must be unique across records",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9973,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check if \"Batch Number\" has duplicates",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9396,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Find duplicate values in \"Store Code\" and \"Order Number\"",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9995,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Make sure Billing Country matches Shipping Country",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9659,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that Phone and Mobile contain the same values",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9745,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that all email addresses are valid",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.999,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check if Email is invalid",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.985,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Delivery Email should have a valid email address",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9424,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Postal Code must match ZIP format",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9938,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check for invalid ZIP codes",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9622,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check that Amount is numeric",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        4
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9821,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that Invoice Date is a valid date",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9989,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "\"Notes\" must contain \"ready  now\"",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9962,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Find rows where Notes contains \"obsolete\"",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.8595,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Verify that the VAT ID column exists",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [],
+      "missingColumns": [
+        "VAT ID"
+      ],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9887,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Ensure columns Name and Phone exist",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [],
+      "missingColumns": [
+        "Phone"
+      ],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9997,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check for missing column VAT ID",
+      "passed": false,
+      "blocked": false,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.9975,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "Laya AI did not confidently approve this rule intent. Rephrase the rule and validate again; it will not run without AI approval."
+      ]
+    },
+    {
+      "source": "Check whether the worksheet has a column called Customer Ref",
+      "passed": false,
+      "blocked": false,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.7415,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "Laya AI did not confidently approve this rule intent. Rephrase the rule and validate again; it will not run without AI approval."
+      ]
+    },
+    {
+      "source": "The \"Name of Child\" column must exist",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [],
+      "missingColumns": [
+        "Name of Child"
+      ],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9932,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Do not flag missing Phone",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.9805,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Show rows where Phone is not empty",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.8237,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "Conditional required rules are not yet supported by the deterministic vocabulary.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Please find non-empty Phone values",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.9421,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Phone must be empty",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.9098,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Phone must not have a value",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.9727,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "Rephrase the rule using duplicate, required, unique, consistency, similarity, or validation language."
+      ]
+    },
+    {
+      "source": "Check if Phone is not empty unless Status is Inactive",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.8708,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Delete duplicate rows with the same Phone",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.7868,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "This exception, negated check or automatic data-changing command cannot be executed safely. Rephrase it as an explicit supported review rule."
+      ]
+    },
+    {
+      "source": "Validate Phone against the external reference table",
+      "passed": true,
+      "blocked": true,
+      "canRun": false,
+      "rows": [],
+      "missingColumns": [],
+      "status": "unsupported",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "needs_review",
+        "confidence": 0.777,
+        "method": "operation_choice"
+      },
+      "warnings": [
+        "This rule cannot be represented safely by the supported execution plans. Rephrase it before validating with Laya AI.",
+        "Rephrase the rule using duplicate, required, unique, consistency, similarity, or validation language."
+      ]
+    },
+    {
+      "source": "Check if Phone is not empty.",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.967,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check if the Phone column exists.",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9934,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Find duplicate values in Name.",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2,
+        3
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9953,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "Check that Email contains a valid email address.",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9976,
+        "method": "operation_choice"
+      },
+      "warnings": []
+    },
+    {
+      "source": "If Status is Active, Phone must not be empty.",
+      "passed": true,
+      "blocked": false,
+      "canRun": true,
+      "rows": [
+        2
+      ],
+      "missingColumns": [],
+      "status": "valid",
+      "aiValidation": {
+        "provider": "laya",
+        "model": "convaiinnovations/laya/multilingual",
+        "decision": "approved",
+        "confidence": 0.9399,
+        "method": "intent_entailment"
+      },
+      "warnings": []
+    }
+  ],
+  "controls": [
+    {
+      "source": "check if phone is not empty",
+      "wrongIntent": "Phone must be empty.",
+      "rejected": true
+    },
+    {
+      "source": "check if column phone exists",
+      "wrongIntent": "Find duplicate Name values across rows.",
+      "rejected": true
+    },
+    {
+      "source": "Check if \"Batch Number\" has duplicates",
+      "wrongIntent": "Phone must not be empty.",
+      "rejected": true
+    },
+    {
+      "source": "Make sure Billing Country matches Shipping Country",
+      "wrongIntent": "Find duplicate customers across different rows.",
+      "rejected": true
+    }
+  ]
+}

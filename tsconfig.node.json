@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "lib": ["ES2023", "DOM"],
+    "paths": {
+      "@/*": ["./src/renderer/src/*"],
+      "@core/*": ["./src/core/*"],
+      "@main/*": ["./src/main/*"]
+    },
+    "types": ["node", "electron", "vitest/globals"]
+  },
+  "include": [
+    "electron.vite.config.ts",
+    "vitest.config.ts",
+    "scripts/**/*.ts",
+    "src/main/**/*.ts",
+    "src/preload/**/*.ts",
+    "src/core/**/*.ts",
+    "src/renderer/src/types/**/*.d.ts",
+    "tests/**/*.ts"
+  ]
+}

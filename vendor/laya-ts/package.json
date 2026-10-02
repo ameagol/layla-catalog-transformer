@@ -1,0 +1,15 @@
+{
+  "name": "laya-ts",
+  "version": "0.1.0",
+  "description": "Pinned local Laya TypeScript runtime from NandhaKishorM/laya commit 6d942c92081fbc139e736bbd9ac0023223c29b7f",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Catalog Transformer monogram">
+  <rect width="256" height="256" rx="54" fill="#101815"/>
+  <path d="M0 54C0 24.18 24.18 0 54 0h148c29.82 0 54 24.18 54 54v10H0V54Z" fill="#D9FF57"/>
+  <path d="M112 92H70c-13.255 0-24 10.745-24 24v38c0 13.255 10.745 24 24 24h42" fill="none" stroke="#D9FF57" stroke-width="20" stroke-linecap="square"/>
+  <path d="M137 101h72M173 101v78" fill="none" stroke="#59C8C1" stroke-width="20" stroke-linecap="square"/>
+  <rect x="43" y="202" width="170" height="12" rx="6" fill="#F16B3A"/>
+</svg>
+

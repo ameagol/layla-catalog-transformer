@@ -1,0 +1,21 @@
+Transactional accounts must have a Vegetable owner. If an account is classified as a Transactional Account and its SFDC Veg Owner field is blank, flag a high-priority missing-owner issue. Route it to the Commercial Data Steward to assign an accountable owner.
+
+The proposed owner must exist. If the Proposed Veg Owner FND ID is blank, flag this as a high-priority issue and route it to the Data Steward for owner master-data correction.
+
+Owner fields must identify the same person. If SFDC Veg Owner, Veg Owner Name, and Proposed Veg Owner FND ID identify different people, flag a medium-priority ownership conflict. Route it to the account's current owner or the Data Steward to confirm the correct assignment.
+
+The sales structure must match. If the Sales Organization, Sales Group, and Sales Office are different, flag this as a high-priority issue and route it to Commercial Operations or the Data Steward.
+
+The owner must align with the commercial structure. If the current owner does not exist, flag a medium-priority ownership inconsistency. Route it to Commercial Operations for confirmation.
+
+Required segmentation must be populated. For account types designated by the SME, the Veg Segmentation Type (SFDC) field must contain a value. If it is blank, flag a medium-priority issue. Route it to the Account Owner to supply the missing value.
+
+Country and state must be compatible. For US accounts, the State field must contain a value from the approved US-state list. Flag incompatible values as medium-priority geographic issues and route them to the Account Owner or Data Steward to correct the address data.
+
+Postal codes must follow the country's format. US postal codes must match the ZIP format. Flag invalid formats as medium priority and route them to the Account Owner for verification.
+
+Contact details must meet the minimum standard. For active or transactional accounts, flag a medium-priority issue if both Phone and Email are blank. Route accounts that fail the applicable standard to the Account Owner.
+
+Master identifiers must be unique. If the same MDMi BPID, FNDG ID, or Salesforce ID appears on more than one record, flag a high-priority duplicate master-identifier issue. Route it to the Master Data Steward for investigation.
+
+Potential duplicate customers must be reviewed. Flag records as high-priority probable duplicates when their normalized names and postal codes match exactly. Route them to the Master Data Steward for validation before any governed merge.

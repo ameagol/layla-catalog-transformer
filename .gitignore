@@ -1,0 +1,16 @@
+node_modules/
+out/
+release/
+release-laya/
+laya-multilingual-source/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.onnx
+*.safetensors
+models/
+/docs/one-pager.zip

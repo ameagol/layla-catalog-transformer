@@ -1,0 +1,99 @@
+{
+  "name": "catalog-transformer",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Local-first natural language data quality engine for Excel workbooks.",
+  "type": "module",
+  "main": "out/main/index.js",
+  "author": "AIDYN",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "npm run typecheck && electron-vite build",
+    "package": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "portable": "npm run build && electron-builder --win portable --config.win.artifactName=Catalog-Transformer-Portable.exe",
+    "smoke": "npm run build && tsx scripts/smoke.ts",
+    "icon:generate": "tsx scripts/generate-icon.ts",
+    "laya:vendor": "node scripts/vendor-laya.mjs && tsc -p vendor/laya-ts",
+    "laya:verify": "node scripts/verify-laya.mjs",
+    "laya:smoke": "tsx --tsconfig tsconfig.node.json scripts/smoke-laya-service.mjs",
+    "business:smoke": "tsx --tsconfig tsconfig.node.json scripts/smoke-business-rules.ts",
+    "owner:smoke": "tsx --tsconfig tsconfig.node.json scripts/smoke-owner-fields.ts",
+    "general:smoke": "tsx --tsconfig tsconfig.node.json scripts/smoke-general-rules.ts",
+    "benchmark:rules": "tsx --tsconfig tsconfig.node.json scripts/benchmark-rules.ts",
+    "laya:package": "node scripts/package-laya.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/source-sans-3": "^5.3.0",
+    "@langchain/core": "^1.2.14",
+    "exceljs": "^4.4.0",
+    "laya-ts": "file:vendor/laya-ts",
+    "lucide-react": "^1.49.0",
+    "onnxruntime-node": "1.30.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.16.13",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6",
+    "vitest": "^5.0.3"
+  },
+  "overrides": {
+    "uuid": "11.1.1"
+  },
+  "build": {
+    "appId": "com.aidyn.catalogtransformer",
+    "productName": "Catalog Transformer",
+    "asar": true,
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Catalog-Transformer-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
