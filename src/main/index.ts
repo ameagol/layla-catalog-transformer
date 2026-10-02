@@ -6,6 +6,7 @@ import electronMain from 'electron/main'
 
 import { registerIpcHandlers } from './ipc/registerHandlers'
 import { AnalysisService } from './services/analysisService'
+import { AnomalyService } from './services/anomalyService'
 import { CopilotService } from './services/copilotService'
 import { ExportService } from './services/exportService'
 import { NlpService } from './services/nlpService'
@@ -113,10 +114,11 @@ async function bootstrap(): Promise<void> {
   const copilot = new CopilotService(analysis, settings, userDataPath, workbooks, laya)
   const exports = new ExportService(analysis)
   const datasets = new ProjectDatasetService(projects, workbooks)
+  const anomalies = new AnomalyService(workbooks, laya)
 
   await projects.initialize()
   if (smokeTest && process.env.CATALOG_TRANSFORMER_SMOKE_USER_DATA) await projects.create({ name: 'Rule input smoke test' })
-  registerIpcHandlers({ projects, settings, analysis, copilot, exports, nlp, datasets })
+  registerIpcHandlers({ projects, settings, analysis, copilot, exports, nlp, datasets, anomalies })
   mainWindow = createWindow()
   mainWindow.on('closed', () => {
     mainWindow = null

@@ -38,6 +38,8 @@ const api: CatalogTransformerApi = {
     ipcRenderer.invoke(IPC_CHANNELS.downloadCorrectedCsv, { analysisId, deletedRowNumbers }),
   downloadReviewedWorkbook: (analysisId, acceptedRowNumbers) =>
     ipcRenderer.invoke(IPC_CHANNELS.downloadReviewedWorkbook, { analysisId, acceptedRowNumbers }),
+  detectAnomalies: (sessionId, sheetName) =>
+    ipcRenderer.invoke(IPC_CHANNELS.anomalyDetect, { sessionId, sheetName }),
   getSettings: () => ipcRenderer.invoke(IPC_CHANNELS.settingsGet),
   updateSettings: (input) => ipcRenderer.invoke(IPC_CHANNELS.settingsUpdate, input),
   testProvider: () => ipcRenderer.invoke(IPC_CHANNELS.settingsTestProvider)

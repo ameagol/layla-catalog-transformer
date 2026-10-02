@@ -37,6 +37,7 @@ type BusyAction =
   | 'interpreting'
   | 'validating-rules'
   | 'running-analysis'
+  | 'scanning-anomalies'
   | 'exporting'
   | 'saving-settings'
   | 'testing-provider'
@@ -59,6 +60,9 @@ interface AppStore {
   lastExportPath: string | null
   providerTestMessage: string | null
   rulesSaveMessage: string | null
+  anomalyScan: import('@core/anomaly/types').AnomalyScanResult | null
+  scanAnomalies(): Promise<void>
+  addDraftRuleToProject(ruleText: string): Promise<void>
   initialize(): Promise<void>
   clearError(): void
   selectProject(projectId: string): Promise<void>
@@ -118,9 +122,11 @@ export const useAppStore = create<AppStore>((set, get) => {
         analysis: null,
         analysisProgress: null,
         lastExportPath: null,
-        rulesSaveMessage: null
+        rulesSaveMessage: null,
+        anomalyScan: null
       })
       if (get().currentProject?.rulesText.trim()) await get().previewRules()
+      if (result.workbook) void get().scanAnomalies()
     } catch (error) {
       set({ busyAction: null, error: errorMessage(error) })
     }
@@ -143,6 +149,28 @@ export const useAppStore = create<AppStore>((set, get) => {
     lastExportPath: null,
     providerTestMessage: null,
     rulesSaveMessage: null,
+    anomalyScan: null,
+
+    scanAnomalies: async () => {
+      const workbook = get().workbook
+      if (!workbook || get().busyAction) return
+      set({ busyAction: 'scanning-anomalies', error: null })
+      try {
+        const result = await datasetService.detectAnomalies(workbook.sessionId, workbook.selectedSheet.name)
+        set({ busyAction: null, anomalyScan: result })
+      } catch (error) {
+        set({ busyAction: null, error: errorMessage(error) })
+      }
+    },
+
+    addDraftRuleToProject: async (ruleText: string) => {
+      const current = get().currentProject
+      if (!current) return
+      const currentText = current.rulesText.trim()
+      const newRulesText = currentText ? `${currentText}\n${ruleText}` : ruleText
+      get().updateProjectDraft({ rulesText: newRulesText })
+      await get().validateAndSaveRules()
+    },
 
     initialize: async () => {
       if (get().initialized || get().busyAction === 'initializing') return
@@ -194,6 +222,7 @@ export const useAppStore = create<AppStore>((set, get) => {
         const workbook = await datasetService.open(project.id)
         set({ busyAction: null, workbook })
         if (workbook && project.rulesText.trim()) await get().previewRules()
+        if (workbook) void get().scanAnomalies()
       } catch (error) {
         set({ busyAction: null, error: errorMessage(error) })
       }
