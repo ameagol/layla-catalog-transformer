@@ -65,6 +65,7 @@ export const IPC_CHANNELS = {
   copilotRows: 'copilot:rows',
   downloadCorrectedCsv: 'findings:download-csv',
   downloadReviewedWorkbook: 'findings:download-workbook',
+  anomalyDetect: 'anomaly:detect',
   settingsGet: 'settings:get',
   settingsUpdate: 'settings:update',
   settingsTestProvider: 'settings:test-provider'
@@ -99,6 +100,7 @@ export interface CatalogTransformerApi {
   askFinding(analysisId: string, findingId: string, question: string): Promise<CopilotAnswer>
   downloadCorrectedCsv(analysisId: string, deletedRowNumbers: number[]): Promise<string | null>
   downloadReviewedWorkbook(analysisId: string, acceptedRowNumbers: number[]): Promise<string | null>
+  detectAnomalies(sessionId: string, sheetName: string): Promise<import('../anomaly/types').AnomalyScanResult>
   getSettings(): Promise<AppSettings>
   updateSettings(input: UpdateSettingsInput): Promise<AppSettings>
   testProvider(): Promise<ProviderTestResult>

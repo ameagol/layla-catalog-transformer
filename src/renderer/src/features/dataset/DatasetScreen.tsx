@@ -2,6 +2,7 @@ import { useState, type DragEvent } from 'react'
 import { FileSpreadsheet, LockKeyhole, UploadCloud } from 'lucide-react'
 
 import { ColumnProfile } from './ColumnProfile'
+import { AnomalyScannerPanel } from './AnomalyScannerPanel'
 import { DATASET_COPY } from './constants'
 import { useAppStore } from '@/stores/useAppStore'
 import { ActionButton } from '@/shared/components/ActionButton'
@@ -16,6 +17,8 @@ export function DatasetScreen() {
   const project = useAppStore((state) => state.currentProject)
   const workbook = useAppStore((state) => state.workbook)
   const busyAction = useAppStore((state) => state.busyAction)
+  const anomalyScan = useAppStore((state) => state.anomalyScan)
+  const scanAnomalies = useAppStore((state) => state.scanAnomalies)
   const chooseWorkbook = useAppStore((state) => state.chooseWorkbook)
   const inspectDroppedFile = useAppStore((state) => state.inspectDroppedFile)
   const disabled = !project || Boolean(busyAction)
@@ -65,6 +68,13 @@ export function DatasetScreen() {
         <Panel title="Column profile" description="Review the dataset's columns, inferred types, and source values." className="min-w-0 overflow-hidden">
           {opening ? <StateMessage loading title="Preparing column profile" description="The profile will appear when your workbook is ready." /> : workbook ? <ColumnProfile profile={workbook.selectedSheet} /> : <StateMessage icon={<FileSpreadsheet className="size-6" />} title="No dataset loaded" description="Choose a workbook to see its column profile here." />}
         </Panel>
+        {workbook && (
+          <AnomalyScannerPanel
+            scanResult={anomalyScan}
+            scanning={busyAction === 'scanning-anomalies'}
+            onScan={() => void scanAnomalies()}
+          />
+        )}
       </div>
     </div>
   )

@@ -3,6 +3,7 @@ import electronMain from 'electron/main'
 import { IPC_CHANNELS } from '@core/ipc/contracts'
 import {
   analysisInputSchema,
+  anomalyDetectInputSchema,
   copilotAskInputSchema,
   copilotGuideInputSchema,
   copilotRowsInputSchema,
@@ -19,6 +20,7 @@ import {
 } from '@core/ipc/schemas'
 
 import { AnalysisService } from '../services/analysisService'
+import { AnomalyService } from '../services/anomalyService'
 import { CopilotService } from '../services/copilotService'
 import { ExportService } from '../services/exportService'
 import { NlpService } from '../services/nlpService'
@@ -34,6 +36,7 @@ interface HandlerServices {
   exports: ExportService
   nlp: NlpService
   datasets: ProjectDatasetService
+  anomalies: AnomalyService
 }
 
 const { app, BrowserWindow, ipcMain } = electronMain
@@ -110,6 +113,10 @@ export function registerIpcHandlers(services: HandlerServices): void {
   ipcMain.handle(IPC_CHANNELS.downloadReviewedWorkbook, (event, input: unknown) =>
     services.exports.downloadWorkbook(senderWindow(event), reviewedWorkbookInputSchema.parse(input))
   )
+  ipcMain.handle(IPC_CHANNELS.anomalyDetect, (_event, input: unknown) => {
+    const parsed = anomalyDetectInputSchema.parse(input)
+    return services.anomalies.detectAnomalies(parsed.sessionId, parsed.sheetName)
+  })
   ipcMain.handle(IPC_CHANNELS.settingsGet, () => services.settings.get())
   ipcMain.handle(IPC_CHANNELS.settingsUpdate, (_event, input: unknown) =>
     services.settings.update(updateSettingsInputSchema.parse(input))

@@ -93,6 +93,11 @@ export const copilotRowsInputSchema = copilotGuideInputSchema.extend({
   columnKeys: z.array(z.string().min(1).max(200)).max(8).refine((keys) => new Set(keys).size === keys.length)
 })
 
+export const anomalyDetectInputSchema = z.object({
+  sessionId: z.string().uuid(),
+  sheetName: z.string().min(1).max(200)
+})
+
 export const updateSettingsInputSchema = z.object({
   provider: z.object({
     kind: z.enum(['deterministic', 'jev', 'laya', 'custom']),
